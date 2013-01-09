@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Pro Git - Pro Git 6.2 Git å·¥å…· äº¤äº’å¼æš‚å­˜</title>
+    <link rel="stylesheet" href="master.css" tppabs="http://progit.org/stylesheets/master.css" type="text/css" media="screen" charset="utf-8"/>
+    <script src="jquery.js" tppabs="http://progit.org/javascripts/jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="jquery.github.js" tppabs="http://progit.org/javascripts/jquery.github.js" type="text/javascript" charset="utf-8"></script>
+    <link rel='alternate' type='application/rss+xml' href='http://feeds.feedburner.com/ProGitBook' />
+  </head>
+  <body>
+    <div id='wrapper'>
+      <div id='header'>
+        <h1>Pro Git</h1>
+        <h2>professional version control</h2>
+      </div>
+      <div id='menu'>
+        <ul>
+          <li><a href="javascript:if(confirm('http://progit.org/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/'" tppabs="http://progit.org/">Home</a></li>
+          <li><a href="javascript:if(confirm('http://progit.org/book  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book'" tppabs="http://progit.org/book">Book</a></li>
+          <li><a href="javascript:if(confirm('http://progit.org/blog.html  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/blog.html'" tppabs="http://progit.org/blog.html">Blog</a></li>
+          <li><a href="javascript:if(confirm('http://progit.org/about.html  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/about.html'" tppabs="http://progit.org/about.html">About</a></li>
+          <li><a href="javascript:if(confirm('http://progit.org/support.html  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/support.html'" tppabs="http://progit.org/support.html">Support Us</a></li>
+          <li><a href="javascript:if(confirm('http://github.com/progit  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://github.com/progit'" tppabs="http://github.com/progit" target='_blank' rel='me'>GitHub</a></li>
+          <li><a href="javascript:if(confirm('http://twitter.com/twitter  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://twitter.com/twitter'" tppabs="http://twitter.com/twitter" target='_blank' rel='me'>Twitter</a></li>
+        </ul>
+      </div>
+      <div id="message">
+        This is an in-progress translation. <br/>
+        To help translate the book, please
+        fork the book <a href="javascript:if(confirm('http://github.com/progit/progit  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://github.com/progit/progit'" tppabs="http://github.com/progit/progit">at GitHub</a> and push your contributions.
+      </div>
+      <div id='content'>
+        <h2 id='id348'>äº¤äº’å¼æš‚å­˜</h2>
+
+<p>Gitæä¾›äº†å¾ˆå¤šè„šæœ¬æ¥è¾…åŠ©æŸäº›å‘½ä»¤è¡Œä»»åŠ¡ã€‚è¿™é‡Œï¼Œä½ å°†çœ‹åˆ°ä¸€äº›äº¤äº’å¼å‘½ä»¤ï¼Œå®ƒä»¬å¸®åŠ©ä½ æ–¹ä¾¿åœ°æ„å»ºåªåŒ…å«ç‰¹å®šç»„åˆå’Œéƒ¨åˆ†æ–‡ä»¶çš„æäº¤ã€‚åœ¨ä½ ä¿®æ”¹äº†ä¸€å¤§æ‰¹æ–‡ä»¶ç„¶åå†³å®šå°†è¿™äº›å˜æ›´åˆ†å¸ƒåœ¨å‡ ä¸ªå„æœ‰ä¾§é‡çš„æäº¤è€Œä¸æ˜¯å•ä¸ªåˆå¤§åˆä¹±çš„æäº¤æ—¶ï¼Œè¿™äº›å·¥å…·éå¸¸æœ‰ç”¨ã€‚ç”¨è¿™ç§æ–¹æ³•ï¼Œä½ å¯ä»¥ç¡®ä¿ä½ çš„æäº¤åœ¨é€»è¾‘ä¸Šåˆ’åˆ†ä¸ºç›¸åº”çš„å˜æ›´é›†ï¼Œä»¥ä¾¿äºä¾›å’Œä½ ä¸€èµ·å·¥ä½œçš„å¼€å‘è€…å®¡é˜…ã€‚å¦‚æœä½ è¿è¡Œ<code>git add</code>æ—¶åŠ ä¸Š<code>-i</code>æˆ–è€…<code>--interactive</code>é€‰é¡¹ï¼ŒGitå°±è¿›å…¥äº†ä¸€ä¸ªäº¤äº’å¼çš„shellæ¨¡å¼ï¼Œæ˜¾ç¤ºä¸€äº›ç±»ä¼¼äºä¸‹é¢çš„ä¿¡æ¯ï¼š</p>
+
+<pre><code>$ git add -i
+           staged     unstaged path
+  1:    unchanged        +0/-1 TODO
+  2:    unchanged        +1/-1 index.html
+  3:    unchanged        +5/-1 lib/simplegit.rb
+
+*** Commands ***
+  1: status     2: update      3: revert     4: add untracked
+  5: patch      6: diff        7: quit       8: help
+What now&gt; </code></pre>
+
+<p>ä½ ä¼šçœ‹åˆ°è¿™ä¸ªå‘½ä»¤ä»¥ä¸€ä¸ªå®Œå…¨ä¸åŒçš„è§†å›¾æ˜¾ç¤ºäº†ä½ çš„æš‚å­˜åŒºâ€”â€”ä¸»è¦æ˜¯ä½ é€šè¿‡<code>git status</code>å¾—åˆ°çš„é‚£äº›ä¿¡æ¯ä½†æ˜¯ç¨å¾®ç®€æ´ä½†ä¿¡æ¯æ›´åŠ ä¸°å¯Œä¸€äº›ã€‚å®ƒåœ¨å·¦ä¾§åˆ—å‡ºäº†ä½ æš‚å­˜çš„å˜æ›´ï¼Œåœ¨å³ä¾§åˆ—å‡ºäº†æœªè¢«æš‚å­˜çš„å˜æ›´ã€‚</p>
+
+<p>åœ¨è¿™ä¹‹åæ˜¯ä¸€ä¸ªå‘½ä»¤åŒºã€‚è¿™é‡Œä½ å¯ä»¥åšå¾ˆå¤šäº‹æƒ…ï¼ŒåŒ…æ‹¬æš‚å­˜æ–‡ä»¶ï¼Œæ’¤å›æ–‡ä»¶ï¼Œæš‚å­˜éƒ¨åˆ†æ–‡ä»¶ï¼ŒåŠ å…¥æœªè¢«è¿½è¸ªçš„æ–‡ä»¶ï¼ŒæŸ¥çœ‹æš‚å­˜æ–‡ä»¶çš„å·®åˆ«ã€‚</p>
+
+<h3 id='id349'>æš‚å­˜å’Œæ’¤å›æ–‡ä»¶</h3>
+
+<p>å¦‚æœä½ åœ¨<code>What now&gt;</code>çš„æç¤ºåè¾“å…¥<code>2</code>æˆ–è€…<code>u</code>ï¼Œè¿™ä¸ªè„šæœ¬ä¼šæç¤ºä½ é‚£äº›æ–‡ä»¶ä½ æƒ³è¦æš‚å­˜ï¼š</p>
+
+<pre><code>What now&gt; 2
+           staged     unstaged path
+  1:    unchanged        +0/-1 TODO
+  2:    unchanged        +1/-1 index.html
+  3:    unchanged        +5/-1 lib/simplegit.rb
+Update&gt;&gt;</code></pre>
+
+<p>å¦‚æœæƒ³æš‚å­˜TODOå’Œindex.htmlï¼Œä½ å¯ä»¥è¾“å…¥ç›¸åº”çš„ç¼–å·ï¼š</p>
+
+<pre><code>Update&gt;&gt; 1,2
+           staged     unstaged path
+* 1:    unchanged        +0/-1 TODO
+* 2:    unchanged        +1/-1 index.html
+  3:    unchanged        +5/-1 lib/simplegit.rb
+Update&gt;&gt;</code></pre>
+
+<p>æ¯ä¸ªæ–‡ä»¶æ—è¾¹çš„<code>*</code>è¡¨ç¤ºé€‰ä¸­çš„æ–‡ä»¶å°†è¢«æš‚å­˜ã€‚å¦‚æœä½ åœ¨<code>update&gt;&gt;</code>æç¤ºåç›´æ¥æ•²å…¥å›è½¦ï¼ŒGitä¼šæ›¿ä½ æŠŠæ‰€æœ‰é€‰ä¸­çš„å†…å®¹æš‚å­˜ï¼š</p>
+
+<pre><code>Update&gt;&gt; 
+updated 2 paths
+
+*** Commands ***
+  1: status     2: update      3: revert     4: add untracked
+  5: patch      6: diff        7: quit       8: help
+What now&gt; 1
+           staged     unstaged path
+  1:        +0/-1      nothing TODO
+  2:        +1/-1      nothing index.html
+  3:    unchanged        +5/-1 lib/simplegit.rb</code></pre>
+
+<p>ç°åœ¨ä½ å¯ä»¥çœ‹åˆ°TODOå’Œindex.htmlæ–‡ä»¶è¢«æš‚å­˜äº†åŒæ—¶simplegit.rbæ–‡ä»¶ä»ç„¶æœªè¢«æš‚å­˜ã€‚å¦‚æœè¿™æ—¶ä½ æƒ³è¦æ’¤å›TODOæ–‡ä»¶ï¼Œå°±ä½¿ç”¨<code>3</code>æˆ–è€…<code>r</code>ï¼ˆä»£è¡¨revertï¼Œæ¢å¤ï¼‰é€‰é¡¹ï¼š</p>
+
+<pre><code>*** Commands ***
+  1: status     2: update      3: revert     4: add untracked
+  5: patch      6: diff        7: quit       8: help
+What now&gt; 3
+           staged     unstaged path
+  1:        +0/-1      nothing TODO
+  2:        +1/-1      nothing index.html
+  3:    unchanged        +5/-1 lib/simplegit.rb
+Revert&gt;&gt; 1
+           staged     unstaged path
+* 1:        +0/-1      nothing TODO
+  2:        +1/-1      nothing index.html
+  3:    unchanged        +5/-1 lib/simplegit.rb
+Revert&gt;&gt; [enter]
+reverted one path</code></pre>
+
+<p>å†æ¬¡æŸ¥çœ‹Gitçš„çŠ¶æ€ï¼Œä½ ä¼šçœ‹åˆ°ä½ å·²ç»æ’¤å›äº†TODOæ–‡ä»¶</p>
+
+<pre><code>*** Commands ***
+  1: status     2: update      3: revert     4: add untracked
+  5: patch      6: diff        7: quit       8: help
+What now&gt; 1
+           staged     unstaged path
+  1:    unchanged        +0/-1 TODO
+  2:        +1/-1      nothing index.html
+  3:    unchanged        +5/-1 lib/simplegit.rb</code></pre>
+
+<p>è¦æŸ¥çœ‹ä½ æš‚å­˜å†…å®¹çš„å·®å¼‚ï¼Œä½ å¯ä»¥ä½¿ç”¨<code>6</code>æˆ–è€…<code>d</code>ï¼ˆè¡¨ç¤ºdiffï¼‰å‘½ä»¤ã€‚å®ƒä¼šæ˜¾ç¤ºä½ æš‚å­˜æ–‡ä»¶çš„åˆ—è¡¨ï¼Œä½ å¯ä»¥é€‰æ‹©å…¶ä¸­çš„å‡ ä¸ªï¼Œæ˜¾ç¤ºå…¶è¢«æš‚å­˜çš„å·®å¼‚ã€‚è¿™è·Ÿä½ åœ¨å‘½ä»¤è¡Œä¸‹æŒ‡å®š<code>git diff --cached</code>éå¸¸ç›¸ä¼¼ï¼š</p>
+
+<pre><code>*** Commands ***
+  1: status     2: update      3: revert     4: add untracked
+  5: patch      6: diff        7: quit       8: help
+What now&gt; 6
+           staged     unstaged path
+  1:        +1/-1      nothing index.html
+Review diff&gt;&gt; 1
+diff --git a/index.html b/index.html
+index 4d07108..4335f49 100644
+--- a/index.html
++++ b/index.html
+@@ -16,7 +16,7 @@ Date Finder
+
+ &lt;p id=&quot;out&quot;&gt;...&lt;/p&gt;
+
+-&lt;div id=&quot;footer&quot;&gt;contact : support@github.com&lt;/div&gt;
++&lt;div id=&quot;footer&quot;&gt;contact : email.support@github.com&lt;/div&gt;
+
+ &lt;script type=&quot;text/javascript&quot;&gt;</code></pre>
+
+<p>é€šè¿‡è¿™äº›åŸºæœ¬å‘½ä»¤ï¼Œä½ å¯ä»¥ä½¿ç”¨äº¤äº’å¼å¢åŠ æ¨¡å¼æ›´åŠ æ–¹ä¾¿åœ°å¤„ç†æš‚å­˜åŒºã€‚</p>
+
+<h3 id='id350'>æš‚å­˜è¡¥ä¸</h3>
+
+<p>åªè®©Gitæš‚å­˜æ–‡ä»¶çš„æŸäº›éƒ¨åˆ†è€Œå¿½ç•¥å…¶ä»–ä¹Ÿæ˜¯æœ‰å¯èƒ½çš„ã€‚ä¾‹å¦‚ï¼Œä½ å¯¹simplegit.rbæ–‡ä»¶ä½œäº†ä¸¤å¤„ä¿®æ”¹ä½†æ˜¯åªæƒ³æš‚å­˜å…¶ä¸­ä¸€ä¸ªè€Œå¿½ç•¥å¦ä¸€ä¸ªï¼Œåœ¨Gitä¸­å®ç°è¿™ä¸€ç‚¹éå¸¸å®¹æ˜“ã€‚åœ¨äº¤äº’å¼çš„æç¤ºç¬¦ä¸‹ï¼Œè¾“å…¥<code>5</code>æˆ–è€…<code>p</code>ï¼ˆè¡¨ç¤ºpatchï¼Œè¡¥ä¸ï¼‰ã€‚Gitä¼šè¯¢é—®å“ªäº›æ–‡ä»¶ä½ å¸Œæœ›éƒ¨åˆ†æš‚å­˜ï¼›ç„¶åå¯¹äºè¢«é€‰ä¸­æ–‡ä»¶çš„æ¯ä¸€èŠ‚ï¼Œä»–ä¼šé€ä¸ªæ˜¾ç¤ºæ–‡ä»¶çš„å·®å¼‚åŒºå—å¹¶è¯¢é—®ä½ æ˜¯å¦å¸Œæœ›æš‚å­˜ä»–ä»¬ï¼š</p>
+
+<pre><code>diff --git a/lib/simplegit.rb b/lib/simplegit.rb
+index dd5ecc4..57399e0 100644
+--- a/lib/simplegit.rb
++++ b/lib/simplegit.rb
+@@ -22,7 +22,7 @@ class SimpleGit
+   end
+
+   def log(treeish = &#39;master&#39;)
+-    command(&quot;git log -n 25 #{treeish}&quot;)
++    command(&quot;git log -n 30 #{treeish}&quot;)
+   end
+
+   def blame(path)
+Stage this hunk [y,n,a,d,/,j,J,g,e,?]? </code></pre>
+
+<p>æ­¤å¤„ä½ æœ‰å¾ˆå¤šé€‰æ‹©ã€‚è¾“å…¥<code>?</code>å¯ä»¥æ˜¾ç¤ºåˆ—è¡¨ï¼š</p>
+
+<pre><code>Stage this hunk [y,n,a,d,/,j,J,g,e,?]? ?
+y - stage this hunk
+n - do not stage this hunk
+a - stage this and all the remaining hunks in the file
+d - do not stage this hunk nor any of the remaining hunks in the file
+g - select a hunk to go to
+/ - search for a hunk matching the given regex
+j - leave this hunk undecided, see next undecided hunk
+J - leave this hunk undecided, see next hunk
+k - leave this hunk undecided, see previous undecided hunk
+K - leave this hunk undecided, see previous hunk
+s - split the current hunk into smaller hunks
+e - manually edit the current hunk
+? - print help</code></pre>
+
+<p>å¦‚æœä½ æƒ³æš‚å­˜å„ä¸ªåŒºå—ï¼Œé€šå¸¸ä½ ä¼šè¾“å…¥<code>y</code>æˆ–è€…<code>n</code>ï¼Œä½†æ˜¯æš‚å­˜ç‰¹å®šæ–‡ä»¶é‡Œçš„å…¨éƒ¨åŒºå—æˆ–è€…æš‚æ—¶è·³è¿‡å¯¹ä¸€ä¸ªåŒºå—çš„å¤„ç†åŒæ ·ä¹Ÿå¾ˆæœ‰ç”¨ã€‚å¦‚æœä½ æš‚å­˜äº†æ–‡ä»¶çš„ä¸€ä¸ªéƒ¨åˆ†è€Œä¿ç•™å¦å¤–ä¸€ä¸ªéƒ¨åˆ†ä¸è¢«æš‚å­˜ï¼Œä½ çš„çŠ¶æ€è¾“å‡ºçœ‹èµ·æ¥ä¼šæ˜¯è¿™æ ·ï¼š</p>
+
+<pre><code>What now&gt; 1
+           staged     unstaged path
+  1:    unchanged        +0/-1 TODO
+  2:        +1/-1      nothing index.html
+  3:        +1/-1        +4/-0 lib/simplegit.rb</code></pre>
+
+<p>simplegit.rbçš„çŠ¶æ€éå¸¸æœ‰æ„æ€ã€‚å®ƒæ˜¾ç¤ºæœ‰å‡ è¡Œè¢«æš‚å­˜äº†ï¼Œæœ‰å‡ è¡Œæ²¡æœ‰ã€‚ä½ éƒ¨åˆ†åœ°æš‚å­˜äº†è¿™ä¸ªæ–‡ä»¶ã€‚åœ¨è¿™æ—¶ï¼Œä½ å¯ä»¥é€€å‡ºäº¤äº’å¼è„šæœ¬ç„¶åè¿è¡Œ<code>git commit</code>æ¥æäº¤éƒ¨åˆ†æš‚å­˜çš„æ–‡ä»¶ã€‚</p>
+
+<p>æœ€åä½ ä¹Ÿå¯ä»¥ä¸é€šè¿‡äº¤äº’å¼å¢åŠ çš„æ¨¡å¼æ¥å®ç°éƒ¨åˆ†æ–‡ä»¶æš‚å­˜â€”â€”ä½ å¯ä»¥åœ¨å‘½ä»¤è¡Œä¸‹é€šè¿‡<code>git add -p</code>æˆ–è€…<code>git add --patch</code>æ¥å¯åŠ¨åŒæ ·çš„è„šæœ¬ã€‚</p>
+
+<div id='nav'>
+<a href="ch6-1.html" tppabs="http://progit.org/book/zh/ch6-1.html">prev</a> | <a href="ch6-3.html" tppabs="http://progit.org/book/zh/ch6-3.html">next</a>
+</div>
+        <div class='clearfix'></div>
+      </div>
+    </div>
+    <div id='footer'>
+      Book translated into 
+        <a href="javascript:if(confirm('http://progit.org/book/de  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/de'" tppabs="http://progit.org/book/de">German</a>, 
+        <a href="javascript:if(confirm('http://progit.org/book/zh  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/zh'" tppabs="http://progit.org/book/zh">Chinese</a>, 
+        <a href="javascript:if(confirm('http://progit.org/book/ja  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/ja'" tppabs="http://progit.org/book/ja">Japanese</a> and 
+        <a href="javascript:if(confirm('http://progit.org/book/nl  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/nl'" tppabs="http://progit.org/book/nl">Dutch</a>.<br/>
+      Partial translations available in 
+        <a href="javascript:if(confirm('http://progit.org/book/ar  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/ar'" tppabs="http://progit.org/book/ar">Arabic</a>,
+        <a href="javascript:if(confirm('http://progit.org/book/cs  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/cs'" tppabs="http://progit.org/book/cs">Czech</a>,
+        <a href="javascript:if(confirm('http://progit.org/book/es  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/es'" tppabs="http://progit.org/book/es">Spanish</a>,
+        <a href="javascript:if(confirm('http://progit.org/book/fr  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/fr'" tppabs="http://progit.org/book/fr">French</a>,
+        <a href="javascript:if(confirm('http://progit.org/book/id  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/id'" tppabs="http://progit.org/book/id">Indonesian</a>,
+        <a href="javascript:if(confirm('http://progit.org/book/it  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/it'" tppabs="http://progit.org/book/it">Italian</a>,
+        <a href="javascript:if(confirm('http://progit.org/book/mk  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/mk'" tppabs="http://progit.org/book/mk">Macedonian</a>,
+        <a href="javascript:if(confirm('http://progit.org/book/pl  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/pl'" tppabs="http://progit.org/book/pl">Polish</a>,
+        <a href="javascript:if(confirm('http://progit.org/book/th  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/th'" tppabs="http://progit.org/book/th">Thai</a> and
+        <a href="javascript:if(confirm('http://progit.org/book/ru  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/ru'" tppabs="http://progit.org/book/ru">Russian</a>
+        .<br/>
+      All content under <a href="javascript:if(confirm('http://creativecommons.org/licenses/by-nc-sa/3.0/us/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://creativecommons.org/licenses/by-nc-sa/3.0/us/'" tppabs="http://creativecommons.org/licenses/by-nc-sa/3.0/us/">Creative Commons Attribution-Non Commercial-Share Alike 3.0 license</a>.
+      <br/>Theme and code by <a href="javascript:if(confirm('http://github.com/mbleigh  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://github.com/mbleigh'" tppabs="http://github.com/mbleigh">Michael Bleigh</a>. Hosted by <a href="javascript:if(confirm('http://github.com/progit/progit.github.com/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://github.com/progit/progit.github.com/'" tppabs="http://github.com/progit/progit.github.com/" target='_blank'>GitHub</a> and powered by <a href="javascript:if(confirm('http://github.com/mojombo/jekyll  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://github.com/mojombo/jekyll'" tppabs="http://github.com/mojombo/jekyll">Jekyll</a>.
+    </div>
+    <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www./");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    try {
+    var pageTracker = _gat._getTracker("UA-82337-15");
+    pageTracker._trackPageview();
+    } catch(err) {}</script>
+  </body>
+</html>

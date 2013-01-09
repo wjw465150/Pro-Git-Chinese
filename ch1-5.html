@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Pro Git - Pro Git 1.5 èµ·æ­¥ åˆæ¬¡è¿è¡Œ Git å‰çš„é…ç½®</title>
+    <link rel="stylesheet" href="master.css" tppabs="http://progit.org/stylesheets/master.css" type="text/css" media="screen" charset="utf-8"/>
+    <script src="jquery.js" tppabs="http://progit.org/javascripts/jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="jquery.github.js" tppabs="http://progit.org/javascripts/jquery.github.js" type="text/javascript" charset="utf-8"></script>
+    <link rel='alternate' type='application/rss+xml' href='http://feeds.feedburner.com/ProGitBook' />
+  </head>
+  <body>
+    <div id='wrapper'>
+      <div id='header'>
+        <h1>Pro Git</h1>
+        <h2>professional version control</h2>
+      </div>
+      <div id='menu'>
+        <ul>
+          <li><a href="javascript:if(confirm('http://progit.org/  \n\n¸ÃÎÄ¼þÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆðÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖÐ¡£  \n\nÄãÏëÒª´Ó·þÎñÆ÷´ò¿ªËüÂð?'))window.location='http://progit.org/'" tppabs="http://progit.org/">Home</a></li>
+          <li><a href="javascript:if(confirm('http://progit.org/book  \n\n¸ÃÎÄ¼þÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆðÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖÐ¡£  \n\nÄãÏëÒª´Ó·þÎñÆ÷´ò¿ªËüÂð?'))window.location='http://progit.org/book'" tppabs="http://progit.org/book">Book</a></li>
+          <li><a href="javascript:if(confirm('http://progit.org/blog.html  \n\n¸ÃÎÄ¼þÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆðÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖÐ¡£  \n\nÄãÏëÒª´Ó·þÎñÆ÷´ò¿ªËüÂð?'))window.location='http://progit.org/blog.html'" tppabs="http://progit.org/blog.html">Blog</a></li>
+          <li><a href="javascript:if(confirm('http://progit.org/about.html  \n\n¸ÃÎÄ¼þÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆðÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖÐ¡£  \n\nÄãÏëÒª´Ó·þÎñÆ÷´ò¿ªËüÂð?'))window.location='http://progit.org/about.html'" tppabs="http://progit.org/about.html">About</a></li>
+          <li><a href="javascript:if(confirm('http://progit.org/support.html  \n\n¸ÃÎÄ¼þÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆðÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖÐ¡£  \n\nÄãÏëÒª´Ó·þÎñÆ÷´ò¿ªËüÂð?'))window.location='http://progit.org/support.html'" tppabs="http://progit.org/support.html">Support Us</a></li>
+          <li><a href="javascript:if(confirm('http://github.com/progit  \n\n¸ÃÎÄ¼þÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆðÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖÐ¡£  \n\nÄãÏëÒª´Ó·þÎñÆ÷´ò¿ªËüÂð?'))window.location='http://github.com/progit'" tppabs="http://github.com/progit" target='_blank' rel='me'>GitHub</a></li>
+          <li><a href="javascript:if(confirm('http://twitter.com/twitter  \n\n¸ÃÎÄ¼þÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆðÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖÐ¡£  \n\nÄãÏëÒª´Ó·þÎñÆ÷´ò¿ªËüÂð?'))window.location='http://twitter.com/twitter'" tppabs="http://twitter.com/twitter" target='_blank' rel='me'>Twitter</a></li>
+        </ul>
+      </div>
+      <div id="message">
+        This is an in-progress translation. <br/>
+        To help translate the book, please
+        fork the book <a href="javascript:if(confirm('http://github.com/progit/progit  \n\n¸ÃÎÄ¼þÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆðÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖÐ¡£  \n\nÄãÏëÒª´Ó·þÎñÆ÷´ò¿ªËüÂð?'))window.location='http://github.com/progit/progit'" tppabs="http://github.com/progit/progit">at GitHub</a> and push your contributions.
+      </div>
+      <div id='content'>
+        <h2 id='_git_'>åˆæ¬¡è¿è¡Œ Git å‰çš„é…ç½®</h2>
+
+<p>ä¸€èˆ¬åœ¨æ–°çš„ç³»ç»Ÿä¸Šï¼Œæˆ‘ä»¬éƒ½éœ€è¦å…ˆé…ç½®ä¸‹è‡ªå·±çš„ Git å·¥ä½œçŽ¯å¢ƒã€‚é…ç½®å·¥ä½œåªéœ€ä¸€æ¬¡ï¼Œä»¥åŽå‡çº§æ—¶è¿˜ä¼šæ²¿ç”¨çŽ°åœ¨çš„é…ç½®ã€‚å½“ç„¶ï¼Œå¦‚æžœéœ€è¦ï¼Œä½ éšæ—¶å¯ä»¥ç”¨ç›¸åŒçš„å‘½ä»¤ä¿®æ”¹å·²æœ‰çš„é…ç½®ã€‚</p>
+
+<p>Git æä¾›äº†ä¸€ä¸ªå«åš git config çš„å·¥å…·ï¼ˆè¯‘æ³¨ï¼šå®žé™…æ˜¯ <code>git-config</code> å‘½ä»¤ï¼Œåªä¸è¿‡å¯ä»¥é€šè¿‡ <code>git</code> åŠ ä¸€ä¸ªåå­—æ¥å‘¼å«æ­¤å‘½ä»¤ã€‚ï¼‰ï¼Œä¸“é—¨ç”¨æ¥é…ç½®æˆ–è¯»å–ç›¸åº”çš„å·¥ä½œçŽ¯å¢ƒå˜é‡ã€‚è€Œæ­£æ˜¯ç”±è¿™äº›çŽ¯å¢ƒå˜é‡ï¼Œå†³å®šäº† Git åœ¨å„ä¸ªçŽ¯èŠ‚çš„å…·ä½“å·¥ä½œæ–¹å¼å’Œè¡Œä¸ºã€‚è¿™äº›å˜é‡å¯ä»¥å­˜æ”¾åœ¨ä»¥ä¸‹ä¸‰ä¸ªä¸åŒçš„åœ°æ–¹ï¼š</p>
+
+<ul>
+<li><code>/etc/gitconfig</code> æ–‡ä»¶ï¼šç³»ç»Ÿä¸­å¯¹æ‰€æœ‰ç”¨æˆ·éƒ½æ™®éé€‚ç”¨çš„é…ç½®ã€‚è‹¥ä½¿ç”¨ <code>git config</code> æ—¶ç”¨ <code> --system</code> é€‰é¡¹ï¼Œè¯»å†™çš„å°±æ˜¯è¿™ä¸ªæ–‡ä»¶ã€‚</li>
+
+<li><code>~/.gitconfig</code> æ–‡ä»¶ï¼šç”¨æˆ·ç›®å½•ä¸‹çš„é…ç½®æ–‡ä»¶åªé€‚ç”¨äºŽè¯¥ç”¨æˆ·ã€‚è‹¥ä½¿ç”¨ <code>git config</code> æ—¶ç”¨ <code> --global</code> é€‰é¡¹ï¼Œè¯»å†™çš„å°±æ˜¯è¿™ä¸ªæ–‡ä»¶ã€‚</li>
+
+<li>å½“å‰é¡¹ç›®çš„ git ç›®å½•ä¸­çš„é…ç½®æ–‡ä»¶ï¼ˆä¹Ÿå°±æ˜¯å·¥ä½œç›®å½•ä¸­çš„ <code>.git/config</code> æ–‡ä»¶ï¼‰ï¼šè¿™é‡Œçš„é…ç½®ä»…ä»…é’ˆå¯¹å½“å‰é¡¹ç›®æœ‰æ•ˆã€‚æ¯ä¸€ä¸ªçº§åˆ«çš„é…ç½®éƒ½ä¼šè¦†ç›–ä¸Šå±‚çš„ç›¸åŒé…ç½®ï¼Œæ‰€ä»¥ <code>.git/config</code> é‡Œçš„é…ç½®ä¼šè¦†ç›– <code>/etc/gitconfig</code> ä¸­çš„åŒåå˜é‡ã€‚</li>
+</ul>
+
+<p>åœ¨ Windows ç³»ç»Ÿä¸Šï¼ŒGit ä¼šæ‰¾å¯»ç”¨æˆ·ä¸»ç›®å½•ä¸‹çš„ <code>.gitconfig</code> æ–‡ä»¶ã€‚ä¸»ç›®å½•å³ <code>$HOME</code> å˜é‡æŒ‡å®šçš„ç›®å½•ï¼Œä¸€èˆ¬éƒ½æ˜¯ <code>C:\Documents and Settings\$USER</code>ã€‚æ­¤å¤–ï¼ŒGit è¿˜ä¼šå°è¯•æ‰¾å¯» <code>/etc/gitconfig</code> æ–‡ä»¶ï¼Œåªä¸è¿‡çœ‹å½“åˆ Git è£…åœ¨ä»€ä¹ˆç›®å½•ï¼Œå°±ä»¥æ­¤ä½œä¸ºæ ¹ç›®å½•æ¥å®šä½ã€‚</p>
+
+<h3 id='id234'>ç”¨æˆ·ä¿¡æ¯</h3>
+
+<p>ç¬¬ä¸€ä¸ªè¦é…ç½®çš„æ˜¯ä½ ä¸ªäººçš„ç”¨æˆ·åç§°å’Œç”µå­é‚®ä»¶åœ°å€ã€‚è¿™ä¸¤æ¡é…ç½®å¾ˆé‡è¦ï¼Œæ¯æ¬¡ Git æäº¤æ—¶éƒ½ä¼šå¼•ç”¨è¿™ä¸¤æ¡ä¿¡æ¯ï¼Œè¯´æ˜Žæ˜¯è°æäº¤äº†æ›´æ–°ï¼Œæ‰€ä»¥ä¼šéšæ›´æ–°å†…å®¹ä¸€èµ·è¢«æ°¸ä¹…çº³å…¥åŽ†å²è®°å½•ï¼š</p>
+
+<pre><code>$ git config --global user.name &quot;John Doe&quot;
+$ git config --global user.email johndoe@example.com</code></pre>
+
+<p>å¦‚æžœç”¨äº† <code>--global</code> é€‰é¡¹ï¼Œé‚£ä¹ˆæ›´æ”¹çš„é…ç½®æ–‡ä»¶å°±æ˜¯ä½äºŽä½ ç”¨æˆ·ä¸»ç›®å½•ä¸‹çš„é‚£ä¸ªï¼Œä»¥åŽä½ æ‰€æœ‰çš„é¡¹ç›®éƒ½ä¼šé»˜è®¤ä½¿ç”¨è¿™é‡Œé…ç½®çš„ç”¨æˆ·ä¿¡æ¯ã€‚å¦‚æžœè¦åœ¨æŸä¸ªç‰¹å®šçš„é¡¹ç›®ä¸­ä½¿ç”¨å…¶ä»–åå­—æˆ–è€…ç”µé‚®ï¼Œåªè¦åŽ»æŽ‰ <code>--global</code> é€‰é¡¹é‡æ–°é…ç½®å³å¯ï¼Œæ–°çš„è®¾å®šä¿å­˜åœ¨å½“å‰é¡¹ç›®çš„ <code>.git/config</code> æ–‡ä»¶é‡Œã€‚</p>
+
+<h3 id='id235'>æ–‡æœ¬ç¼–è¾‘å™¨</h3>
+
+<p>æŽ¥ä¸‹æ¥è¦è®¾ç½®çš„æ˜¯é»˜è®¤ä½¿ç”¨çš„æ–‡æœ¬ç¼–è¾‘å™¨ã€‚Git éœ€è¦ä½ è¾“å…¥ä¸€äº›é¢å¤–æ¶ˆæ¯çš„æ—¶å€™ï¼Œä¼šè‡ªåŠ¨è°ƒç”¨ä¸€ä¸ªå¤–éƒ¨æ–‡æœ¬ç¼–è¾‘å™¨ç»™ä½ ç”¨ã€‚é»˜è®¤ä¼šä½¿ç”¨æ“ä½œç³»ç»ŸæŒ‡å®šçš„é»˜è®¤ç¼–è¾‘å™¨ï¼Œä¸€èˆ¬å¯èƒ½ä¼šæ˜¯ Vi æˆ–è€… Vimã€‚å¦‚æžœä½ æœ‰å…¶ä»–åå¥½ï¼Œæ¯”å¦‚ Emacs çš„è¯ï¼Œå¯ä»¥é‡æ–°è®¾ç½®ï¼š</p>
+
+<pre><code>$ git config --global core.editor emacs</code></pre>
+
+<h3 id='id236'>å·®å¼‚åˆ†æžå·¥å…·</h3>
+
+<p>è¿˜æœ‰ä¸€ä¸ªæ¯”è¾ƒå¸¸ç”¨çš„æ˜¯ï¼Œåœ¨è§£å†³åˆå¹¶å†²çªæ—¶ä½¿ç”¨å“ªç§å·®å¼‚åˆ†æžå·¥å…·ã€‚æ¯”å¦‚è¦æ”¹ç”¨ vimdiff çš„è¯ï¼š</p>
+
+<pre><code>$ git config --global merge.tool vimdiff</code></pre>
+
+<p>Git å¯ä»¥ç†è§£ kdiff3ï¼Œtkdiffï¼Œmeldï¼Œxxdiffï¼Œemergeï¼Œvimdiffï¼Œgvimdiffï¼Œecmergeï¼Œå’Œ opendiff ç­‰åˆå¹¶å·¥å…·çš„è¾“å‡ºä¿¡æ¯ã€‚å½“ç„¶ï¼Œä½ ä¹Ÿå¯ä»¥æŒ‡å®šä½¿ç”¨è‡ªå·±å¼€å‘çš„å·¥å…·ï¼Œå…·ä½“æ€Žä¹ˆåšå¯ä»¥å‚é˜…ç¬¬ä¸ƒç« ã€‚</p>
+
+<h3 id='id237'>æŸ¥çœ‹é…ç½®ä¿¡æ¯</h3>
+
+<p>è¦æ£€æŸ¥å·²æœ‰çš„é…ç½®ä¿¡æ¯ï¼Œå¯ä»¥ä½¿ç”¨ <code>git config --list</code> å‘½ä»¤ï¼š</p>
+
+<pre><code>$ git config --list
+user.name=Scott Chacon
+user.email=schacon@gmail.com
+color.status=auto
+color.branch=auto
+color.interactive=auto
+color.diff=auto
+...</code></pre>
+
+<p>æœ‰æ—¶å€™ä¼šçœ‹åˆ°é‡å¤çš„å˜é‡åï¼Œé‚£å°±è¯´æ˜Žå®ƒä»¬æ¥è‡ªä¸åŒçš„é…ç½®æ–‡ä»¶ï¼ˆæ¯”å¦‚ <code>/etc/gitconfig</code> å’Œ <code>~/.gitconfig</code>ï¼‰ï¼Œä¸è¿‡æœ€ç»ˆ Git å®žé™…é‡‡ç”¨çš„æ˜¯æœ€åŽä¸€ä¸ªã€‚</p>
+
+<p>ä¹Ÿå¯ä»¥ç›´æŽ¥æŸ¥é˜…æŸä¸ªçŽ¯å¢ƒå˜é‡çš„è®¾å®šï¼Œåªè¦æŠŠç‰¹å®šçš„åå­—è·Ÿåœ¨åŽé¢å³å¯ï¼Œåƒè¿™æ ·ï¼š</p>
+
+<pre><code>$ git config user.name
+Scott Chacon</code></pre>
+
+<div id='nav'>
+<a href="ch1-4.html" tppabs="http://progit.org/book/zh/ch1-4.html">prev</a> | <a href="ch1-6.html" tppabs="http://progit.org/book/zh/ch1-6.html">next</a>
+</div>
+        <div class='clearfix'></div>
+      </div>
+    </div>
+    <div id='footer'>
+      Book translated into 
+        <a href="javascript:if(confirm('http://progit.org/book/de  \n\n¸ÃÎÄ¼þÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆðÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖÐ¡£  \n\nÄãÏëÒª´Ó·þÎñÆ÷´ò¿ªËüÂð?'))window.location='http://progit.org/book/de'" tppabs="http://progit.org/book/de">German</a>, 
+        <a href="javascript:if(confirm('http://progit.org/book/zh  \n\n¸ÃÎÄ¼þÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆðÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖÐ¡£  \n\nÄãÏëÒª´Ó·þÎñÆ÷´ò¿ªËüÂð?'))window.location='http://progit.org/book/zh'" tppabs="http://progit.org/book/zh">Chinese</a>, 
+        <a href="javascript:if(confirm('http://progit.org/book/ja  \n\n¸ÃÎÄ¼þÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆðÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖÐ¡£  \n\nÄãÏëÒª´Ó·þÎñÆ÷´ò¿ªËüÂð?'))window.location='http://progit.org/book/ja'" tppabs="http://progit.org/book/ja">Japanese</a> and 
+        <a href="javascript:if(confirm('http://progit.org/book/nl  \n\n¸ÃÎÄ¼þÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆðÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖÐ¡£  \n\nÄãÏëÒª´Ó·þÎñÆ÷´ò¿ªËüÂð?'))window.location='http://progit.org/book/nl'" tppabs="http://progit.org/book/nl">Dutch</a>.<br/>
+      Partial translations available in 
+        <a href="javascript:if(confirm('http://progit.org/book/ar  \n\n¸ÃÎÄ¼þÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆðÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖÐ¡£  \n\nÄãÏëÒª´Ó·þÎñÆ÷´ò¿ªËüÂð?'))window.location='http://progit.org/book/ar'" tppabs="http://progit.org/book/ar">Arabic</a>,
+        <a href="javascript:if(confirm('http://progit.org/book/cs  \n\n¸ÃÎÄ¼þÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆðÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖÐ¡£  \n\nÄãÏëÒª´Ó·þÎñÆ÷´ò¿ªËüÂð?'))window.location='http://progit.org/book/cs'" tppabs="http://progit.org/book/cs">Czech</a>,
+        <a href="javascript:if(confirm('http://progit.org/book/es  \n\n¸ÃÎÄ¼þÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆðÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖÐ¡£  \n\nÄãÏëÒª´Ó·þÎñÆ÷´ò¿ªËüÂð?'))window.location='http://progit.org/book/es'" tppabs="http://progit.org/book/es">Spanish</a>,
+        <a href="javascript:if(confirm('http://progit.org/book/fr  \n\n¸ÃÎÄ¼þÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆðÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖÐ¡£  \n\nÄãÏëÒª´Ó·þÎñÆ÷´ò¿ªËüÂð?'))window.location='http://progit.org/book/fr'" tppabs="http://progit.org/book/fr">French</a>,
+        <a href="javascript:if(confirm('http://progit.org/book/id  \n\n¸ÃÎÄ¼þÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆðÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖÐ¡£  \n\nÄãÏëÒª´Ó·þÎñÆ÷´ò¿ªËüÂð?'))window.location='http://progit.org/book/id'" tppabs="http://progit.org/book/id">Indonesian</a>,
+        <a href="javascript:if(confirm('http://progit.org/book/it  \n\n¸ÃÎÄ¼þÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆðÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖÐ¡£  \n\nÄãÏëÒª´Ó·þÎñÆ÷´ò¿ªËüÂð?'))window.location='http://progit.org/book/it'" tppabs="http://progit.org/book/it">Italian</a>,
+        <a href="javascript:if(confirm('http://progit.org/book/mk  \n\n¸ÃÎÄ¼þÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆðÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖÐ¡£  \n\nÄãÏëÒª´Ó·þÎñÆ÷´ò¿ªËüÂð?'))window.location='http://progit.org/book/mk'" tppabs="http://progit.org/book/mk">Macedonian</a>,
+        <a href="javascript:if(confirm('http://progit.org/book/pl  \n\n¸ÃÎÄ¼þÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆðÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖÐ¡£  \n\nÄãÏëÒª´Ó·þÎñÆ÷´ò¿ªËüÂð?'))window.location='http://progit.org/book/pl'" tppabs="http://progit.org/book/pl">Polish</a>,
+        <a href="javascript:if(confirm('http://progit.org/book/th  \n\n¸ÃÎÄ¼þÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆðÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖÐ¡£  \n\nÄãÏëÒª´Ó·þÎñÆ÷´ò¿ªËüÂð?'))window.location='http://progit.org/book/th'" tppabs="http://progit.org/book/th">Thai</a> and
+        <a href="javascript:if(confirm('http://progit.org/book/ru  \n\n¸ÃÎÄ¼þÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆðÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖÐ¡£  \n\nÄãÏëÒª´Ó·þÎñÆ÷´ò¿ªËüÂð?'))window.location='http://progit.org/book/ru'" tppabs="http://progit.org/book/ru">Russian</a>
+        .<br/>
+      All content under <a href="javascript:if(confirm('http://creativecommons.org/licenses/by-nc-sa/3.0/us/  \n\n¸ÃÎÄ¼þÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆðÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖÐ¡£  \n\nÄãÏëÒª´Ó·þÎñÆ÷´ò¿ªËüÂð?'))window.location='http://creativecommons.org/licenses/by-nc-sa/3.0/us/'" tppabs="http://creativecommons.org/licenses/by-nc-sa/3.0/us/">Creative Commons Attribution-Non Commercial-Share Alike 3.0 license</a>.
+      <br/>Theme and code by <a href="javascript:if(confirm('http://github.com/mbleigh  \n\n¸ÃÎÄ¼þÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆðÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖÐ¡£  \n\nÄãÏëÒª´Ó·þÎñÆ÷´ò¿ªËüÂð?'))window.location='http://github.com/mbleigh'" tppabs="http://github.com/mbleigh">Michael Bleigh</a>. Hosted by <a href="javascript:if(confirm('http://github.com/progit/progit.github.com/  \n\n¸ÃÎÄ¼þÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆðÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖÐ¡£  \n\nÄãÏëÒª´Ó·þÎñÆ÷´ò¿ªËüÂð?'))window.location='http://github.com/progit/progit.github.com/'" tppabs="http://github.com/progit/progit.github.com/" target='_blank'>GitHub</a> and powered by <a href="javascript:if(confirm('http://github.com/mojombo/jekyll  \n\n¸ÃÎÄ¼þÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆðÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖÐ¡£  \n\nÄãÏëÒª´Ó·þÎñÆ÷´ò¿ªËüÂð?'))window.location='http://github.com/mojombo/jekyll'" tppabs="http://github.com/mojombo/jekyll">Jekyll</a>.
+    </div>
+    <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www./");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    try {
+    var pageTracker = _gat._getTracker("UA-82337-15");
+    pageTracker._trackPageview();
+    } catch(err) {}</script>
+  </body>
+</html>

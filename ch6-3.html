@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Pro Git - Pro Git 6.3 Git å·¥å…· å‚¨è—ï¼ˆStashingï¼‰</title>
+    <link rel="stylesheet" href="master.css" tppabs="http://progit.org/stylesheets/master.css" type="text/css" media="screen" charset="utf-8"/>
+    <script src="jquery.js" tppabs="http://progit.org/javascripts/jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="jquery.github.js" tppabs="http://progit.org/javascripts/jquery.github.js" type="text/javascript" charset="utf-8"></script>
+    <link rel='alternate' type='application/rss+xml' href='http://feeds.feedburner.com/ProGitBook' />
+  </head>
+  <body>
+    <div id='wrapper'>
+      <div id='header'>
+        <h1>Pro Git</h1>
+        <h2>professional version control</h2>
+      </div>
+      <div id='menu'>
+        <ul>
+          <li><a href="javascript:if(confirm('http://progit.org/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/'" tppabs="http://progit.org/">Home</a></li>
+          <li><a href="javascript:if(confirm('http://progit.org/book  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book'" tppabs="http://progit.org/book">Book</a></li>
+          <li><a href="javascript:if(confirm('http://progit.org/blog.html  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/blog.html'" tppabs="http://progit.org/blog.html">Blog</a></li>
+          <li><a href="javascript:if(confirm('http://progit.org/about.html  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/about.html'" tppabs="http://progit.org/about.html">About</a></li>
+          <li><a href="javascript:if(confirm('http://progit.org/support.html  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/support.html'" tppabs="http://progit.org/support.html">Support Us</a></li>
+          <li><a href="javascript:if(confirm('http://github.com/progit  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://github.com/progit'" tppabs="http://github.com/progit" target='_blank' rel='me'>GitHub</a></li>
+          <li><a href="javascript:if(confirm('http://twitter.com/twitter  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://twitter.com/twitter'" tppabs="http://twitter.com/twitter" target='_blank' rel='me'>Twitter</a></li>
+        </ul>
+      </div>
+      <div id="message">
+        This is an in-progress translation. <br/>
+        To help translate the book, please
+        fork the book <a href="javascript:if(confirm('http://github.com/progit/progit  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://github.com/progit/progit'" tppabs="http://github.com/progit/progit">at GitHub</a> and push your contributions.
+      </div>
+      <div id='content'>
+        <h2 id='stashing'>å‚¨è—ï¼ˆStashingï¼‰</h2>
+
+<p>ç»å¸¸æœ‰è¿™æ ·çš„äº‹æƒ…å‘ç”Ÿï¼Œå½“ä½ æ­£åœ¨è¿›è¡Œé¡¹ç›®ä¸­æŸä¸€éƒ¨åˆ†çš„å·¥ä½œï¼Œé‡Œé¢çš„ä¸œè¥¿å¤„äºä¸€ä¸ªæ¯”è¾ƒæ‚ä¹±çš„çŠ¶æ€ï¼Œè€Œä½ æƒ³è½¬åˆ°å…¶ä»–åˆ†æ”¯ä¸Šè¿›è¡Œä¸€äº›å·¥ä½œã€‚é—®é¢˜æ˜¯ï¼Œä½ ä¸æƒ³æäº¤è¿›è¡Œäº†ä¸€åŠçš„å·¥ä½œï¼Œå¦åˆ™ä»¥åä½ æ— æ³•å›åˆ°è¿™ä¸ªå·¥ä½œç‚¹ã€‚è§£å†³è¿™ä¸ªé—®é¢˜çš„åŠæ³•å°±æ˜¯<code>git stash</code>å‘½ä»¤ã€‚</p>
+
+<p>â€œâ€˜å‚¨è—â€â€œå¯ä»¥è·å–ä½ å·¥ä½œç›®å½•çš„ä¸­é—´çŠ¶æ€â€”â€”ä¹Ÿå°±æ˜¯ä½ ä¿®æ”¹è¿‡çš„è¢«è¿½è¸ªçš„æ–‡ä»¶å’Œæš‚å­˜çš„å˜æ›´â€”â€”å¹¶å°†å®ƒä¿å­˜åˆ°ä¸€ä¸ªæœªå®Œç»“å˜æ›´çš„å †æ ˆä¸­ï¼Œéšæ—¶å¯ä»¥é‡æ–°åº”ç”¨ã€‚</p>
+
+<h3 id='id351'>å‚¨è—ä½ çš„å·¥ä½œ</h3>
+
+<p>ä¸ºäº†æ¼”ç¤ºè¿™ä¸€åŠŸèƒ½ï¼Œä½ å¯ä»¥è¿›å…¥ä½ çš„é¡¹ç›®ï¼Œåœ¨ä¸€äº›æ–‡ä»¶ä¸Šè¿›è¡Œå·¥ä½œï¼Œæœ‰å¯èƒ½è¿˜æš‚å­˜å…¶ä¸­ä¸€ä¸ªå˜æ›´ã€‚å¦‚æœä½ è¿è¡Œ <code>git status</code>ï¼Œä½ å¯ä»¥çœ‹åˆ°ä½ çš„ä¸­é—´çŠ¶æ€ï¼š</p>
+
+<pre><code>$ git status
+# On branch master
+# Changes to be committed:
+#   (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)
+#
+#      modified:   index.html
+#
+# Changed but not updated:
+#   (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
+#
+#      modified:   lib/simplegit.rb
+#</code></pre>
+
+<p>ç°åœ¨ä½ æƒ³åˆ‡æ¢åˆ†æ”¯ï¼Œä½†æ˜¯ä½ è¿˜ä¸æƒ³æäº¤ä½ æ­£åœ¨è¿›è¡Œä¸­çš„å·¥ä½œï¼›æ‰€ä»¥ä½ å‚¨è—è¿™äº›å˜æ›´ã€‚ä¸ºäº†å¾€å †æ ˆæ¨é€ä¸€ä¸ªæ–°çš„å‚¨è—ï¼Œåªè¦è¿è¡Œ <code>git stash</code>ï¼š</p>
+
+<pre><code>$ git stash
+Saved working directory and index state \
+  &quot;WIP on master: 049d078 added the index file&quot;
+HEAD is now at 049d078 added the index file
+(To restore them type &quot;git stash apply&quot;)</code></pre>
+
+<p>ä½ çš„å·¥ä½œç›®å½•å°±å¹²å‡€äº†ï¼š</p>
+
+<pre><code>$ git status
+# On branch master
+nothing to commit (working directory clean)</code></pre>
+
+<p>è¿™æ—¶ï¼Œä½ å¯ä»¥æ–¹ä¾¿åœ°åˆ‡æ¢åˆ°å…¶ä»–åˆ†æ”¯å·¥ä½œï¼›ä½ çš„å˜æ›´éƒ½ä¿å­˜åœ¨æ ˆä¸Šã€‚è¦æŸ¥çœ‹ç°æœ‰çš„å‚¨è—ï¼Œä½ å¯ä»¥ä½¿ç”¨ <code>git stash list</code>ï¼š</p>
+
+<pre><code>$ git stash list
+stash@{0}: WIP on master: 049d078 added the index file
+stash@{1}: WIP on master: c264051... Revert &quot;added file_size&quot;
+stash@{2}: WIP on master: 21d80a5... added number to log</code></pre>
+
+<p>åœ¨è¿™ä¸ªæ¡ˆä¾‹ä¸­ï¼Œä¹‹å‰å·²ç»è¿›è¡Œäº†ä¸¤æ¬¡å‚¨è—ï¼Œæ‰€ä»¥ä½ å¯ä»¥è®¿é—®åˆ°ä¸‰ä¸ªä¸åŒçš„å‚¨è—ã€‚ä½ å¯ä»¥é‡æ–°åº”ç”¨ä½ åˆšåˆšå®æ–½çš„å‚¨è—ï¼Œæ‰€é‡‡ç”¨çš„å‘½ä»¤å°±æ˜¯ä¹‹å‰åœ¨åŸå§‹çš„ stash å‘½ä»¤çš„å¸®åŠ©è¾“å‡ºé‡Œæç¤ºçš„ï¼š<code>git stash apply</code>ã€‚å¦‚æœä½ æƒ³åº”ç”¨æ›´æ—©çš„å‚¨è—ï¼Œä½ å¯ä»¥é€šè¿‡åå­—æŒ‡å®šå®ƒï¼Œåƒè¿™æ ·ï¼š<code>git stash apply stash@{2}</code>ã€‚å¦‚æœä½ ä¸æŒ‡æ˜ï¼ŒGit é»˜è®¤ä½¿ç”¨æœ€è¿‘çš„å‚¨è—å¹¶å°è¯•åº”ç”¨å®ƒï¼š</p>
+
+<pre><code>$ git stash apply
+# On branch master
+# Changed but not updated:
+#   (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
+#
+#      modified:   index.html
+#      modified:   lib/simplegit.rb
+#</code></pre>
+
+<p>ä½ å¯ä»¥çœ‹åˆ° Git é‡æ–°ä¿®æ”¹äº†ä½ æ‰€å‚¨è—çš„é‚£äº›å½“æ—¶å°šæœªæäº¤çš„æ–‡ä»¶ã€‚åœ¨è¿™ä¸ªæ¡ˆä¾‹é‡Œï¼Œä½ å°è¯•åº”ç”¨å‚¨è—çš„å·¥ä½œç›®å½•æ˜¯å¹²å‡€çš„ï¼Œå¹¶ä¸”å±äºåŒä¸€åˆ†æ”¯ï¼›ä½†æ˜¯ä¸€ä¸ªå¹²å‡€çš„å·¥ä½œç›®å½•å’Œåº”ç”¨åˆ°ç›¸åŒçš„åˆ†æ”¯ä¸Šå¹¶ä¸æ˜¯åº”ç”¨å‚¨è—çš„å¿…è¦æ¡ä»¶ã€‚ä½ å¯ä»¥åœ¨å…¶ä¸­ä¸€ä¸ªåˆ†æ”¯ä¸Šä¿ç•™ä¸€ä»½å‚¨è—ï¼Œéšååˆ‡æ¢åˆ°å¦å¤–ä¸€ä¸ªåˆ†æ”¯ï¼Œå†é‡æ–°åº”ç”¨è¿™äº›å˜æ›´ã€‚åœ¨å·¥ä½œç›®å½•é‡ŒåŒ…å«å·²ä¿®æ”¹å’Œæœªæäº¤çš„æ–‡ä»¶æ—¶ï¼Œä½ ä¹Ÿå¯ä»¥åº”ç”¨å‚¨è—â€”â€”Git ä¼šç»™å‡ºå½’å¹¶å†²çªå¦‚æœæœ‰ä»»ä½•å˜æ›´æ— æ³•å¹²å‡€åœ°è¢«åº”ç”¨ã€‚</p>
+
+<p>å¯¹æ–‡ä»¶çš„å˜æ›´è¢«é‡æ–°åº”ç”¨ï¼Œä½†æ˜¯è¢«æš‚å­˜çš„æ–‡ä»¶æ²¡æœ‰é‡æ–°è¢«æš‚å­˜ã€‚æƒ³é‚£æ ·çš„è¯ï¼Œä½ å¿…é¡»åœ¨è¿è¡Œ <code>git stash apply</code> å‘½ä»¤æ—¶å¸¦ä¸Šä¸€ä¸ª <code>--index</code> çš„é€‰é¡¹æ¥å‘Šè¯‰å‘½ä»¤é‡æ–°åº”ç”¨è¢«æš‚å­˜çš„å˜æ›´ã€‚å¦‚æœä½ æ˜¯è¿™ä¹ˆåšçš„ï¼Œä½ åº”è¯¥å·²ç»å›åˆ°ä½ åŸæ¥çš„ä½ç½®ï¼š</p>
+
+<pre><code>$ git stash apply --index
+# On branch master
+# Changes to be committed:
+#   (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)
+#
+#      modified:   index.html
+#
+# Changed but not updated:
+#   (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
+#
+#      modified:   lib/simplegit.rb
+#</code></pre>
+
+<p>apply é€‰é¡¹åªå°è¯•åº”ç”¨å‚¨è—çš„å·¥ä½œâ€”â€”å‚¨è—çš„å†…å®¹ä»ç„¶åœ¨æ ˆä¸Šã€‚è¦ç§»é™¤å®ƒï¼Œä½ å¯ä»¥è¿è¡Œ <code>git stash drop</code>ï¼ŒåŠ ä¸Šä½ å¸Œæœ›ç§»é™¤çš„å‚¨è—çš„åå­—ï¼š</p>
+
+<pre><code>$ git stash list
+stash@{0}: WIP on master: 049d078 added the index file
+stash@{1}: WIP on master: c264051... Revert &quot;added file_size&quot;
+stash@{2}: WIP on master: 21d80a5... added number to log
+$ git stash drop stash@{0}
+Dropped stash@{0} (364e91f3f268f0900bc3ee613f9f733e82aaed43)</code></pre>
+
+<p>ä½ ä¹Ÿå¯ä»¥è¿è¡Œ <code>git stash pop</code> æ¥é‡æ–°åº”ç”¨å‚¨è—ï¼ŒåŒæ—¶ç«‹åˆ»å°†å…¶ä»å †æ ˆä¸­ç§»èµ°ã€‚</p>
+
+<h3 id='unapplying_a_stash'>Un-applying a Stash</h3>
+
+<p>In some use case scenarios you might want to apply stashed changes, do some work, but then un-apply those changes that originally came form the stash. Git does not provide such a <code>stash unapply</code> command, but it is possible to achieve the effect by simply retrieving the patch associated with a stash and applying it in reverse:</p>
+
+<pre><code>$ git stash show -p stash@{0} | git apply -R</code></pre>
+
+<p>Again, if you donâ€™t specify a stash, Git assumes the most recent stash:</p>
+
+<pre><code>$ git stash show -p | git apply -R</code></pre>
+
+<p>You may want to create an alias and effectively add a <code>stash-unapply</code> command to your git. For example:</p>
+
+<pre><code>$ git config --global alias.stash-unapply &#39;!git stash show -p | git apply -R&#39;
+$ git stash
+$ #... work work work
+$ git stash-unapply</code></pre>
+
+<h3 id='id352'>ä»å‚¨è—ä¸­åˆ›å»ºåˆ†æ”¯</h3>
+
+<p>å¦‚æœä½ å‚¨è—äº†ä¸€äº›å·¥ä½œï¼Œæš‚æ—¶ä¸å»ç†ä¼šï¼Œç„¶åç»§ç»­åœ¨ä½ å‚¨è—å·¥ä½œçš„åˆ†æ”¯ä¸Šå·¥ä½œï¼Œä½ åœ¨é‡æ–°åº”ç”¨å·¥ä½œæ—¶å¯èƒ½ä¼šç¢°åˆ°ä¸€äº›é—®é¢˜ã€‚å¦‚æœå°è¯•åº”ç”¨çš„å˜æ›´æ˜¯é’ˆå¯¹ä¸€ä¸ªä½ é‚£ä¹‹åä¿®æ”¹è¿‡çš„æ–‡ä»¶ï¼Œä½ ä¼šç¢°åˆ°ä¸€ä¸ªå½’å¹¶å†²çªå¹¶ä¸”å¿…é¡»å»åŒ–è§£å®ƒã€‚å¦‚æœä½ æƒ³ç”¨æ›´æ–¹ä¾¿çš„æ–¹æ³•æ¥é‡æ–°æ£€éªŒä½ å‚¨è—çš„å˜æ›´ï¼Œä½ å¯ä»¥è¿è¡Œ <code>git stash branch</code>ï¼Œè¿™ä¼šåˆ›å»ºä¸€ä¸ªæ–°çš„åˆ†æ”¯ï¼Œæ£€å‡ºä½ å‚¨è—å·¥ä½œæ—¶çš„æ‰€å¤„çš„æäº¤ï¼Œé‡æ–°åº”ç”¨ä½ çš„å·¥ä½œï¼Œå¦‚æœæˆåŠŸï¼Œå°†ä¼šä¸¢å¼ƒå‚¨è—ã€‚</p>
+
+<pre><code>$ git stash branch testchanges
+Switched to a new branch &quot;testchanges&quot;
+# On branch testchanges
+# Changes to be committed:
+#   (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)
+#
+#      modified:   index.html
+#
+# Changed but not updated:
+#   (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
+#
+#      modified:   lib/simplegit.rb
+#
+Dropped refs/stash@{0} (f0dfc4d5dc332d1cee34a634182e168c4efc3359)</code></pre>
+
+<p>è¿™æ˜¯ä¸€ä¸ªå¾ˆæ£’çš„æ·å¾„æ¥æ¢å¤å‚¨è—çš„å·¥ä½œç„¶ååœ¨æ–°çš„åˆ†æ”¯ä¸Šç»§ç»­å½“æ—¶çš„å·¥ä½œã€‚</p>
+
+<div id='nav'>
+<a href="ch6-2.html" tppabs="http://progit.org/book/zh/ch6-2.html">prev</a> | <a href="ch6-4.html" tppabs="http://progit.org/book/zh/ch6-4.html">next</a>
+</div>
+        <div class='clearfix'></div>
+      </div>
+    </div>
+    <div id='footer'>
+      Book translated into 
+        <a href="javascript:if(confirm('http://progit.org/book/de  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/de'" tppabs="http://progit.org/book/de">German</a>, 
+        <a href="javascript:if(confirm('http://progit.org/book/zh  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/zh'" tppabs="http://progit.org/book/zh">Chinese</a>, 
+        <a href="javascript:if(confirm('http://progit.org/book/ja  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/ja'" tppabs="http://progit.org/book/ja">Japanese</a> and 
+        <a href="javascript:if(confirm('http://progit.org/book/nl  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/nl'" tppabs="http://progit.org/book/nl">Dutch</a>.<br/>
+      Partial translations available in 
+        <a href="javascript:if(confirm('http://progit.org/book/ar  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/ar'" tppabs="http://progit.org/book/ar">Arabic</a>,
+        <a href="javascript:if(confirm('http://progit.org/book/cs  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/cs'" tppabs="http://progit.org/book/cs">Czech</a>,
+        <a href="javascript:if(confirm('http://progit.org/book/es  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/es'" tppabs="http://progit.org/book/es">Spanish</a>,
+        <a href="javascript:if(confirm('http://progit.org/book/fr  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/fr'" tppabs="http://progit.org/book/fr">French</a>,
+        <a href="javascript:if(confirm('http://progit.org/book/id  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/id'" tppabs="http://progit.org/book/id">Indonesian</a>,
+        <a href="javascript:if(confirm('http://progit.org/book/it  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/it'" tppabs="http://progit.org/book/it">Italian</a>,
+        <a href="javascript:if(confirm('http://progit.org/book/mk  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/mk'" tppabs="http://progit.org/book/mk">Macedonian</a>,
+        <a href="javascript:if(confirm('http://progit.org/book/pl  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/pl'" tppabs="http://progit.org/book/pl">Polish</a>,
+        <a href="javascript:if(confirm('http://progit.org/book/th  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/th'" tppabs="http://progit.org/book/th">Thai</a> and
+        <a href="javascript:if(confirm('http://progit.org/book/ru  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/ru'" tppabs="http://progit.org/book/ru">Russian</a>
+        .<br/>
+      All content under <a href="javascript:if(confirm('http://creativecommons.org/licenses/by-nc-sa/3.0/us/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://creativecommons.org/licenses/by-nc-sa/3.0/us/'" tppabs="http://creativecommons.org/licenses/by-nc-sa/3.0/us/">Creative Commons Attribution-Non Commercial-Share Alike 3.0 license</a>.
+      <br/>Theme and code by <a href="javascript:if(confirm('http://github.com/mbleigh  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://github.com/mbleigh'" tppabs="http://github.com/mbleigh">Michael Bleigh</a>. Hosted by <a href="javascript:if(confirm('http://github.com/progit/progit.github.com/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://github.com/progit/progit.github.com/'" tppabs="http://github.com/progit/progit.github.com/" target='_blank'>GitHub</a> and powered by <a href="javascript:if(confirm('http://github.com/mojombo/jekyll  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://github.com/mojombo/jekyll'" tppabs="http://github.com/mojombo/jekyll">Jekyll</a>.
+    </div>
+    <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www./");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    try {
+    var pageTracker = _gat._getTracker("UA-82337-15");
+    pageTracker._trackPageview();
+    } catch(err) {}</script>
+  </body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Pro Git - Pro Git 9.5 Git å†…éƒ¨åŸç† The Refspec</title>
+    <link rel="stylesheet" href="master.css" tppabs="http://progit.org/stylesheets/master.css" type="text/css" media="screen" charset="utf-8"/>
+    <script src="jquery.js" tppabs="http://progit.org/javascripts/jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="jquery.github.js" tppabs="http://progit.org/javascripts/jquery.github.js" type="text/javascript" charset="utf-8"></script>
+    <link rel='alternate' type='application/rss+xml' href='http://feeds.feedburner.com/ProGitBook' />
+  </head>
+  <body>
+    <div id='wrapper'>
+      <div id='header'>
+        <h1>Pro Git</h1>
+        <h2>professional version control</h2>
+      </div>
+      <div id='menu'>
+        <ul>
+          <li><a href="javascript:if(confirm('http://progit.org/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/'" tppabs="http://progit.org/">Home</a></li>
+          <li><a href="javascript:if(confirm('http://progit.org/book  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book'" tppabs="http://progit.org/book">Book</a></li>
+          <li><a href="javascript:if(confirm('http://progit.org/blog.html  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/blog.html'" tppabs="http://progit.org/blog.html">Blog</a></li>
+          <li><a href="javascript:if(confirm('http://progit.org/about.html  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/about.html'" tppabs="http://progit.org/about.html">About</a></li>
+          <li><a href="javascript:if(confirm('http://progit.org/support.html  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/support.html'" tppabs="http://progit.org/support.html">Support Us</a></li>
+          <li><a href="javascript:if(confirm('http://github.com/progit  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://github.com/progit'" tppabs="http://github.com/progit" target='_blank' rel='me'>GitHub</a></li>
+          <li><a href="javascript:if(confirm('http://twitter.com/twitter  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://twitter.com/twitter'" tppabs="http://twitter.com/twitter" target='_blank' rel='me'>Twitter</a></li>
+        </ul>
+      </div>
+      <div id="message">
+        This is an in-progress translation. <br/>
+        To help translate the book, please
+        fork the book <a href="javascript:if(confirm('http://github.com/progit/progit  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://github.com/progit/progit'" tppabs="http://github.com/progit/progit">at GitHub</a> and push your contributions.
+      </div>
+      <div id='content'>
+        <h2 id='the_refspec'>The Refspec</h2>
+
+<p>è¿™æœ¬ä¹¦è¯»åˆ°è¿™é‡Œï¼Œä½ å·²ç»ä½¿ç”¨è¿‡ä¸€äº›ç®€å•çš„è¿œç¨‹åˆ†æ”¯åˆ°æœ¬åœ°å¼•ç”¨çš„æ˜ å°„æ–¹å¼äº†ï¼Œè¿™ç§æ˜ å°„å¯ä»¥æ›´ä¸ºå¤æ‚ã€‚ å‡è®¾ä½ åƒè¿™æ ·æ·»åŠ äº†ä¸€é¡¹è¿œç¨‹ä»“åº“ï¼š</p>
+
+<pre><code>$ git remote add origin git@github.com:schacon/simplegit-progit.git</code></pre>
+
+<p>å®ƒåœ¨ä½ çš„ <code>.git/config</code> æ–‡ä»¶ä¸­æ·»åŠ äº†ä¸€èŠ‚ï¼ŒæŒ‡å®šäº†è¿œç¨‹çš„åç§° (<code>origin</code>), è¿œç¨‹ä»“åº“çš„URLåœ°å€ï¼Œå’Œç”¨äºè·å–æ“ä½œçš„ Refspec:</p>
+
+<pre><code>[remote &quot;origin&quot;]
+       url = git@github.com:schacon/simplegit-progit.git
+       fetch = +refs/heads/*:refs/remotes/origin/*</code></pre>
+
+<p>Refspec çš„æ ¼å¼æ˜¯ä¸€ä¸ªå¯é€‰çš„ <code>+</code> å·ï¼Œæ¥ç€æ˜¯ <code>&lt;src&gt;:&lt;dst&gt;</code> çš„æ ¼å¼ï¼Œè¿™é‡Œ <code>&lt;src&gt;</code> æ˜¯è¿œç«¯ä¸Šçš„å¼•ç”¨æ ¼å¼ï¼Œ <code>&lt;dst&gt;</code> æ˜¯å°†è¦è®°å½•åœ¨æœ¬åœ°çš„å¼•ç”¨æ ¼å¼ã€‚å¯é€‰çš„ <code>+</code> å·å‘Šè¯‰ Git åœ¨å³ä½¿ä¸èƒ½å¿«é€Ÿæ¼”è¿›çš„æƒ…å†µä¸‹ï¼Œä¹Ÿå»å¼ºåˆ¶æ›´æ–°å®ƒã€‚</p>
+
+<p>ç¼ºçœæƒ…å†µä¸‹ refspec ä¼šè¢« <code>git remote add</code> å‘½ä»¤æ‰€è‡ªåŠ¨ç”Ÿæˆï¼Œ Git ä¼šè·å–è¿œç«¯ä¸Š <code>refs/heads/</code> ä¸‹é¢çš„æ‰€æœ‰å¼•ç”¨ï¼Œå¹¶å°†å®ƒå†™å…¥åˆ°æœ¬åœ°çš„ <code>refs/remotes/origin/</code>. æ‰€ä»¥ï¼Œå¦‚æœè¿œç«¯ä¸Šæœ‰ä¸€ä¸ª <code>master</code> åˆ†æ”¯ï¼Œä½ åœ¨æœ¬åœ°å¯ä»¥é€šè¿‡ä¸‹é¢è¿™ç§æ–¹å¼æ¥è®¿é—®å®ƒçš„å†å²è®°å½•ï¼š</p>
+
+<pre><code>$ git log origin/master
+$ git log remotes/origin/master
+$ git log refs/remotes/origin/master</code></pre>
+
+<p>å®ƒä»¬å…¨æ˜¯ç­‰ä»·çš„ï¼Œå› ä¸º Git æŠŠå®ƒä»¬éƒ½æ‰©å±•æˆ <code>refs/remotes/origin/master</code>.</p>
+
+<p>å¦‚æœä½ æƒ³è®© Git æ¯æ¬¡åªæ‹‰å–è¿œç¨‹çš„ <code>master</code> åˆ†æ”¯ï¼Œè€Œä¸æ˜¯è¿œç¨‹çš„æ‰€æœ‰åˆ†æ”¯ï¼Œä½ å¯ä»¥æŠŠ fetch è¿™ä¸€è¡Œä¿®æ”¹æˆè¿™æ ·ï¼š</p>
+
+<pre><code>fetch = +refs/heads/master:refs/remotes/origin/master</code></pre>
+
+<p>è¿™æ˜¯ <code>git fetch</code> æ“ä½œå¯¹è¿™ä¸ªè¿œç«¯çš„ç¼ºçœ refspec å€¼ã€‚è€Œå¦‚æœä½ åªæƒ³åšä¸€æ¬¡è¯¥æ“ä½œï¼Œä¹Ÿå¯ä»¥åœ¨å‘½ä»¤è¡Œä¸ŠæŒ‡å®šè¿™ä¸ª refspec. å¦‚å¯ä»¥è¿™æ ·æ‹‰å–è¿œç¨‹çš„ <code>master</code> åˆ†æ”¯åˆ°æœ¬åœ°çš„ <code>origin/mymaster</code> åˆ†æ”¯ï¼š</p>
+
+<pre><code>$ git fetch origin master:refs/remotes/origin/mymaster</code></pre>
+
+<p>ä½ ä¹Ÿå¯ä»¥åœ¨å‘½ä»¤è¡Œä¸ŠæŒ‡å®šå¤šä¸ª refspec. åƒè¿™æ ·å¯ä»¥ä¸€æ¬¡è·å–è¿œç¨‹çš„å¤šä¸ªåˆ†æ”¯ï¼š</p>
+
+<pre><code>$ git fetch origin master:refs/remotes/origin/mymaster \
+   topic:refs/remotes/origin/topic
+From git@github.com:schacon/simplegit
+ ! [rejected]        master     -&gt; origin/mymaster  (non fast forward)
+ * [new branch]      topic      -&gt; origin/topic</code></pre>
+
+<p>åœ¨è¿™ä¸ªä¾‹å­ä¸­ï¼Œ <code>master</code> åˆ†æ”¯å› ä¸ºä¸æ˜¯ä¸€ä¸ªå¯ä»¥å¿«é€Ÿæ¼”è¿›çš„å¼•ç”¨è€Œæ‹‰å–æ“ä½œè¢«æ‹’ç»ã€‚ä½ å¯ä»¥åœ¨ refspec ä¹‹å‰ä½¿ç”¨ä¸€ä¸ª <code>+</code> å·æ¥é‡è½½è¿™ç§è¡Œä¸ºã€‚</p>
+
+<p>ä½ ä¹Ÿå¯ä»¥åœ¨é…ç½®æ–‡ä»¶ä¸­æŒ‡å®šå¤šä¸ª refspec. å¦‚ä½ æƒ³åœ¨æ¯æ¬¡è·å–æ—¶éƒ½è·å– <code>master</code> å’Œ <code>experiment</code> åˆ†æ”¯ï¼Œå°±æ·»åŠ ä¸¤è¡Œï¼š</p>
+
+<pre><code>[remote &quot;origin&quot;]
+       url = git@github.com:schacon/simplegit-progit.git
+       fetch = +refs/heads/master:refs/remotes/origin/master
+       fetch = +refs/heads/experiment:refs/remotes/origin/experiment</code></pre>
+
+<p>ä½†æ˜¯è¿™é‡Œä¸èƒ½ä½¿ç”¨éƒ¨åˆ†é€šé…ç¬¦ï¼Œåƒè¿™æ ·å°±æ˜¯ä¸åˆæ³•çš„ï¼š</p>
+
+<pre><code>fetch = +refs/heads/qa*:refs/remotes/origin/qa*</code></pre>
+
+<p>ä½†æ— è®ºå¦‚ä½•ï¼Œä½ å¯ä»¥ä½¿ç”¨å‘½åç©ºé—´æ¥è¾¾åˆ°è¿™ä¸ªç›®çš„ã€‚å¦‚ä½ æœ‰ä¸€ä¸ªQAç»„ï¼Œä»–ä»¬æ¨é€ä¸€ç³»åˆ—åˆ†æ”¯ï¼Œä½ æƒ³æ¯æ¬¡è·å– <code>master</code> åˆ†æ”¯å’ŒQAç»„çš„æ‰€æœ‰åˆ†æ”¯ï¼Œä½ å¯ä»¥ä½¿ç”¨è¿™æ ·çš„é…ç½®æ®µè½ï¼š</p>
+
+<pre><code>[remote &quot;origin&quot;]
+       url = git@github.com:schacon/simplegit-progit.git
+       fetch = +refs/heads/master:refs/remotes/origin/master
+       fetch = +refs/heads/qa/*:refs/remotes/origin/qa/*</code></pre>
+
+<p>å¦‚æœä½ çš„å·¥ä½œæµå¾ˆå¤æ‚ï¼Œæœ‰QAç»„æ¨é€çš„åˆ†æ”¯ã€å¼€å‘äººå‘˜æ¨é€çš„åˆ†æ”¯ã€å’Œé›†æˆäººå‘˜æ¨é€çš„åˆ†æ”¯ï¼Œå¹¶ä¸”ä»–ä»¬åœ¨è¿œç¨‹åˆ†æ”¯ä¸Šåä½œï¼Œä½ å¯ä»¥é‡‡ç”¨è¿™ç§æ–¹å¼ä¸ºä»–ä»¬åˆ›å»ºå„è‡ªçš„å‘½åç©ºé—´ã€‚</p>
+
+<h3 id='_refspec'>æ¨é€ Refspec</h3>
+
+<p>é‡‡ç”¨å‘½åç©ºé—´çš„æ–¹å¼ç¡®å®å¾ˆæ£’ï¼Œä½†QAç»„æˆå‘˜ç¬¬1æ¬¡æ˜¯å¦‚ä½•å°†ä»–ä»¬çš„åˆ†æ”¯æ¨é€åˆ° <code>qa/</code> ç©ºé—´é‡Œé¢çš„å‘¢ï¼Ÿç­”æ¡ˆæ˜¯ä½ å¯ä»¥ä½¿ç”¨ refspec æ¥æ¨é€ã€‚</p>
+
+<p>å¦‚æœQAç»„æˆå‘˜æƒ³æŠŠä»–ä»¬çš„ <code>master</code> åˆ†æ”¯æ¨é€åˆ°è¿œç¨‹çš„ <code>qa/master</code> åˆ†æ”¯ä¸Šï¼Œå¯ä»¥è¿™æ ·è¿è¡Œï¼š</p>
+
+<pre><code>$ git push origin master:refs/heads/qa/master</code></pre>
+
+<p>å¦‚æœä»–ä»¬æƒ³è®© Git æ¯æ¬¡è¿è¡Œ <code>git push origin</code> æ—¶éƒ½è¿™æ ·è‡ªåŠ¨æ¨é€ï¼Œä»–ä»¬å¯ä»¥åœ¨é…ç½®æ–‡ä»¶ä¸­æ·»åŠ  <code>push</code> å€¼ï¼š</p>
+
+<pre><code>[remote &quot;origin&quot;]
+       url = git@github.com:schacon/simplegit-progit.git
+       fetch = +refs/heads/*:refs/remotes/origin/*
+       push = refs/heads/master:refs/heads/qa/master</code></pre>
+
+<p>è¿™æ ·ï¼Œå°±ä¼šè®© <code>git push origin</code> ç¼ºçœå°±æŠŠæœ¬åœ°çš„ <code>master</code> åˆ†æ”¯æ¨é€åˆ°è¿œç¨‹çš„ <code>qa/master</code> åˆ†æ”¯ä¸Šã€‚</p>
+
+<h3 id='id398'>åˆ é™¤å¼•ç”¨</h3>
+
+<p>ä½ ä¹Ÿå¯ä»¥ä½¿ç”¨ refspec æ¥åˆ é™¤è¿œç¨‹çš„å¼•ç”¨ï¼Œæ˜¯é€šè¿‡è¿è¡Œè¿™æ ·çš„å‘½ä»¤ï¼š</p>
+
+<pre><code>$ git push origin :topic</code></pre>
+
+<p>å› ä¸º refspec çš„æ ¼å¼æ˜¯ <code>&lt;src&gt;:&lt;dst&gt;</code>, é€šè¿‡æŠŠ <code>&lt;src&gt;</code> éƒ¨åˆ†ç•™ç©ºçš„æ–¹å¼ï¼Œè¿™ä¸ªæ„æ€æ˜¯æ˜¯æŠŠè¿œç¨‹çš„ <code>topic</code> åˆ†æ”¯å˜æˆç©ºï¼Œä¹Ÿå°±æ˜¯åˆ é™¤å®ƒã€‚</p>
+
+<div id='nav'>
+<a href="ch9-4.html" tppabs="http://progit.org/book/zh/ch9-4.html">prev</a> | <a href="ch9-6.html" tppabs="http://progit.org/book/zh/ch9-6.html">next</a>
+</div>
+        <div class='clearfix'></div>
+      </div>
+    </div>
+    <div id='footer'>
+      Book translated into 
+        <a href="javascript:if(confirm('http://progit.org/book/de  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/de'" tppabs="http://progit.org/book/de">German</a>, 
+        <a href="javascript:if(confirm('http://progit.org/book/zh  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/zh'" tppabs="http://progit.org/book/zh">Chinese</a>, 
+        <a href="javascript:if(confirm('http://progit.org/book/ja  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/ja'" tppabs="http://progit.org/book/ja">Japanese</a> and 
+        <a href="javascript:if(confirm('http://progit.org/book/nl  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/nl'" tppabs="http://progit.org/book/nl">Dutch</a>.<br/>
+      Partial translations available in 
+        <a href="javascript:if(confirm('http://progit.org/book/ar  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/ar'" tppabs="http://progit.org/book/ar">Arabic</a>,
+        <a href="javascript:if(confirm('http://progit.org/book/cs  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/cs'" tppabs="http://progit.org/book/cs">Czech</a>,
+        <a href="javascript:if(confirm('http://progit.org/book/es  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/es'" tppabs="http://progit.org/book/es">Spanish</a>,
+        <a href="javascript:if(confirm('http://progit.org/book/fr  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/fr'" tppabs="http://progit.org/book/fr">French</a>,
+        <a href="javascript:if(confirm('http://progit.org/book/id  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/id'" tppabs="http://progit.org/book/id">Indonesian</a>,
+        <a href="javascript:if(confirm('http://progit.org/book/it  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/it'" tppabs="http://progit.org/book/it">Italian</a>,
+        <a href="javascript:if(confirm('http://progit.org/book/mk  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/mk'" tppabs="http://progit.org/book/mk">Macedonian</a>,
+        <a href="javascript:if(confirm('http://progit.org/book/pl  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/pl'" tppabs="http://progit.org/book/pl">Polish</a>,
+        <a href="javascript:if(confirm('http://progit.org/book/th  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/th'" tppabs="http://progit.org/book/th">Thai</a> and
+        <a href="javascript:if(confirm('http://progit.org/book/ru  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/ru'" tppabs="http://progit.org/book/ru">Russian</a>
+        .<br/>
+      All content under <a href="javascript:if(confirm('http://creativecommons.org/licenses/by-nc-sa/3.0/us/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://creativecommons.org/licenses/by-nc-sa/3.0/us/'" tppabs="http://creativecommons.org/licenses/by-nc-sa/3.0/us/">Creative Commons Attribution-Non Commercial-Share Alike 3.0 license</a>.
+      <br/>Theme and code by <a href="javascript:if(confirm('http://github.com/mbleigh  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://github.com/mbleigh'" tppabs="http://github.com/mbleigh">Michael Bleigh</a>. Hosted by <a href="javascript:if(confirm('http://github.com/progit/progit.github.com/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://github.com/progit/progit.github.com/'" tppabs="http://github.com/progit/progit.github.com/" target='_blank'>GitHub</a> and powered by <a href="javascript:if(confirm('http://github.com/mojombo/jekyll  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://github.com/mojombo/jekyll'" tppabs="http://github.com/mojombo/jekyll">Jekyll</a>.
+    </div>
+    <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www./");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    try {
+    var pageTracker = _gat._getTracker("UA-82337-15");
+    pageTracker._trackPageview();
+    } catch(err) {}</script>
+  </body>
+</html>

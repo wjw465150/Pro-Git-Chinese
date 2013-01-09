@@ -1,0 +1,221 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Pro Git - Pro Git 4.7 æœåŠ¡å™¨ä¸Šçš„ Git Gitosis</title>
+    <link rel="stylesheet" href="master.css" tppabs="http://progit.org/stylesheets/master.css" type="text/css" media="screen" charset="utf-8"/>
+    <script src="jquery.js" tppabs="http://progit.org/javascripts/jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="jquery.github.js" tppabs="http://progit.org/javascripts/jquery.github.js" type="text/javascript" charset="utf-8"></script>
+    <link rel='alternate' type='application/rss+xml' href='http://feeds.feedburner.com/ProGitBook' />
+  </head>
+  <body>
+    <div id='wrapper'>
+      <div id='header'>
+        <h1>Pro Git</h1>
+        <h2>professional version control</h2>
+      </div>
+      <div id='menu'>
+        <ul>
+          <li><a href="javascript:if(confirm('http://progit.org/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/'" tppabs="http://progit.org/">Home</a></li>
+          <li><a href="javascript:if(confirm('http://progit.org/book  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book'" tppabs="http://progit.org/book">Book</a></li>
+          <li><a href="javascript:if(confirm('http://progit.org/blog.html  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/blog.html'" tppabs="http://progit.org/blog.html">Blog</a></li>
+          <li><a href="javascript:if(confirm('http://progit.org/about.html  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/about.html'" tppabs="http://progit.org/about.html">About</a></li>
+          <li><a href="javascript:if(confirm('http://progit.org/support.html  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/support.html'" tppabs="http://progit.org/support.html">Support Us</a></li>
+          <li><a href="javascript:if(confirm('http://github.com/progit  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://github.com/progit'" tppabs="http://github.com/progit" target='_blank' rel='me'>GitHub</a></li>
+          <li><a href="javascript:if(confirm('http://twitter.com/twitter  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://twitter.com/twitter'" tppabs="http://twitter.com/twitter" target='_blank' rel='me'>Twitter</a></li>
+        </ul>
+      </div>
+      <div id="message">
+        This is an in-progress translation. <br/>
+        To help translate the book, please
+        fork the book <a href="javascript:if(confirm('http://github.com/progit/progit  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://github.com/progit/progit'" tppabs="http://github.com/progit/progit">at GitHub</a> and push your contributions.
+      </div>
+      <div id='content'>
+        <h2 id='gitosis'>Gitosis</h2>
+
+<p>æŠŠæ‰€æœ‰ç”¨æˆ·çš„å…¬é’¥ä¿å­˜åœ¨ <code>authorized_keys</code> æ–‡ä»¶çš„åšæ³•ï¼Œåªèƒ½å‡‘å’Œä¸€é˜µå­ï¼Œå½“ç”¨æˆ·æ•°é‡è¾¾åˆ°å‡ ç™¾äººçš„è§„æ¨¡æ—¶ï¼Œç®¡ç†èµ·æ¥å°±ä¼šååˆ†ç—›è‹¦ã€‚æ¯æ¬¡æ”¹åˆ ç”¨æˆ·éƒ½å¿…é¡»ç™»å½•æœåŠ¡å™¨ä¸å»è¯´ï¼Œè¿™ç§åšæ³•è¿˜ç¼ºå°‘å¿…è¦çš„æƒé™ç®¡ç† â€” æ¯ä¸ªäººéƒ½å¯¹æ‰€æœ‰é¡¹ç›®æ‹¥æœ‰å®Œæ•´çš„è¯»å†™æƒé™ã€‚</p>
+
+<p>å¹¸å¥½æˆ‘ä»¬è¿˜å¯ä»¥é€‰æ‹©åº”ç”¨å¹¿æ³›çš„ Gitosis é¡¹ç›®ã€‚ç®€å•åœ°è¯´ï¼ŒGitosis å°±æ˜¯ä¸€å¥—ç”¨æ¥ç®¡ç† <code>authorized_keys</code> æ–‡ä»¶å’Œå®ç°ç®€å•è¿æ¥é™åˆ¶çš„è„šæœ¬ã€‚æœ‰è¶£çš„æ˜¯ï¼Œç”¨æ¥æ·»åŠ ç”¨æˆ·å’Œè®¾å®šæƒé™çš„å¹¶éé€šè¿‡ç½‘é¡µç¨‹åºï¼Œè€Œåªæ˜¯ç®¡ç†ä¸€ä¸ªç‰¹æ®Šçš„ Git ä»“åº“ã€‚ä½ åªéœ€è¦åœ¨è¿™ä¸ªç‰¹æ®Šä»“åº“å†…åšå¥½ç›¸åº”çš„è®¾å®šï¼Œç„¶åæ¨é€åˆ°æœåŠ¡å™¨ä¸Šï¼ŒGitosis å°±ä¼šéšä¹‹æ”¹å˜è¿è¡Œç­–ç•¥ï¼Œå¬èµ·æ¥å°±å¾ˆé…·ï¼Œå¯¹å§ï¼Ÿ</p>
+
+<p>Gitosis çš„å®‰è£…ç®—ä¸ä¸Šå‚»ç“œåŒ–ï¼Œä½†ä¹Ÿä¸ç®—å¤ªéš¾ã€‚ç”¨ Linux æœåŠ¡å™¨æ¶è®¾èµ·æ¥æœ€ç®€å• â€” ä»¥ä¸‹ä¾‹å­ä¸­ï¼Œæˆ‘ä»¬ä½¿ç”¨è£…æœ‰ Ubuntu 8.10 ç³»ç»Ÿçš„æœåŠ¡å™¨ã€‚</p>
+
+<p>Gitosis çš„å·¥ä½œä¾èµ–äºæŸäº› Python å·¥å…·ï¼Œæ‰€ä»¥é¦–å…ˆè¦å®‰è£… Python çš„ setuptools åŒ…ï¼Œåœ¨ Ubuntu ä¸Šç§°ä¸º python-setuptoolsï¼š</p>
+
+<pre><code>$ apt-get install python-setuptools</code></pre>
+
+<p>æ¥ä¸‹æ¥ï¼Œä» Gitosis é¡¹ç›®ä¸»é¡µå…‹éš†å¹¶å®‰è£…ï¼š</p>
+
+<pre><code>$ git clone git://eagain.net/gitosis.git
+$ cd gitosis
+$ sudo python setup.py install</code></pre>
+
+<p>è¿™ä¼šå®‰è£…å‡ ä¸ªä¾› Gitosis ä½¿ç”¨çš„å·¥å…·ã€‚é»˜è®¤ Gitosis ä¼šæŠŠ <code>/home/git</code> ä½œä¸ºå­˜å‚¨æ‰€æœ‰ Git ä»“åº“çš„æ ¹ç›®å½•ï¼Œè¿™æ²¡ä»€ä¹ˆä¸å¥½ï¼Œä¸è¿‡æˆ‘ä»¬ä¹‹å‰å·²ç»æŠŠé¡¹ç›®ä»“åº“éƒ½æ”¾åœ¨ <code>/opt/git</code> é‡Œé¢äº†ï¼Œæ‰€ä»¥ä¸ºæ–¹ä¾¿èµ·è§ï¼Œæˆ‘ä»¬å¯ä»¥åšä¸€ä¸ªç¬¦å·è¿æ¥ï¼Œç›´æ¥åˆ’è½¬è¿‡å»ï¼Œè€Œä¸å¿…é‡æ–°é…ç½®ï¼š</p>
+
+<pre><code>$ ln -s /opt/git /home/git/repositories</code></pre>
+
+<p>Gitosis å°†ä¼šå¸®æˆ‘ä»¬ç®¡ç†ç”¨æˆ·å…¬é’¥ï¼Œæ‰€ä»¥å…ˆæŠŠå½“å‰æ§åˆ¶æ–‡ä»¶æ”¹åå¤‡ä»½ï¼Œä»¥ä¾¿ç¨åé‡æ–°æ·»åŠ ï¼Œå‡†å¤‡å¥½è®© Gitosis è‡ªåŠ¨ç®¡ç† <code>authorized_keys</code> æ–‡ä»¶ï¼š</p>
+
+<pre><code>$ mv /home/git/.ssh/authorized_keys /home/git/.ssh/ak.bak</code></pre>
+
+<p>æ¥ä¸‹æ¥ï¼Œå¦‚æœä¹‹å‰æŠŠ <code>git</code> ç”¨æˆ·çš„ç™»å½• shell æ”¹ä¸º <code>git-shell</code> å‘½ä»¤çš„è¯ï¼Œå…ˆæ¢å¤ &#8216;git&#8217; ç”¨æˆ·çš„ç™»å½• shellã€‚æ”¹è¿‡ä¹‹åï¼Œå¤§å®¶ä»ç„¶æ— æ³•é€šè¿‡è¯¥å¸å·ç™»å½•ï¼ˆè¯‘æ³¨ï¼šå› ä¸º <code>authorized_keys</code> æ–‡ä»¶å·²ç»æ²¡æœ‰äº†ã€‚ï¼‰ï¼Œä¸è¿‡ä¸ç”¨æ‹…å¿ƒï¼Œè¿™ä¼šäº¤ç»™ Gitosis æ¥å®ç°ã€‚æ‰€ä»¥ç°åœ¨å…ˆæ‰“å¼€ <code>/etc/passwd</code> æ–‡ä»¶ï¼ŒæŠŠè¿™è¡Œï¼š</p>
+
+<pre><code>git:x:1000:1000::/home/git:/usr/bin/git-shell</code></pre>
+
+<p>æ”¹å›:</p>
+
+<pre><code>git:x:1000:1000::/home/git:/bin/sh</code></pre>
+
+<p>å¥½äº†ï¼Œç°åœ¨å¯ä»¥åˆå§‹åŒ– Gitosis äº†ã€‚ä½ å¯ä»¥ç”¨è‡ªå·±çš„å…¬é’¥æ‰§è¡Œ <code>gitosis-init</code> å‘½ä»¤ï¼Œè¦æ˜¯å…¬é’¥ä¸åœ¨æœåŠ¡å™¨ä¸Šï¼Œå…ˆä¸´æ—¶å¤åˆ¶ä¸€ä»½ï¼š</p>
+
+<pre><code>$ sudo -H -u git gitosis-init &lt; /tmp/id_dsa.pub
+Initialized empty Git repository in /opt/git/gitosis-admin.git/
+Reinitialized existing Git repository in /opt/git/gitosis-admin.git/</code></pre>
+
+<p>è¿™æ ·è¯¥å…¬é’¥çš„æ‹¥æœ‰è€…å°±èƒ½ä¿®æ”¹ç”¨äºé…ç½® Gitosis çš„é‚£ä¸ªç‰¹æ®Š Git ä»“åº“äº†ã€‚æ¥ä¸‹æ¥ï¼Œéœ€è¦æ‰‹å·¥å¯¹è¯¥ä»“åº“ä¸­çš„ <code>post-update</code> è„šæœ¬åŠ ä¸Šå¯æ‰§è¡Œæƒé™ï¼š</p>
+
+<pre><code>$ sudo chmod 755 /opt/git/gitosis-admin.git/hooks/post-update</code></pre>
+
+<p>åŸºæœ¬ä¸Šå°±ç®—æ˜¯å¥½äº†ã€‚å¦‚æœè®¾å®šè¿‡ç¨‹æ²¡å‡ºä»€ä¹ˆå·®é”™ï¼Œç°åœ¨å¯ä»¥è¯•ä¸€ä¸‹ç”¨åˆå§‹åŒ– Gitosis çš„å…¬é’¥çš„æ‹¥æœ‰è€…èº«ä»½ SSH ç™»å½•æœåŠ¡å™¨ï¼Œåº”è¯¥ä¼šçœ‹åˆ°ç±»ä¼¼ä¸‹é¢è¿™æ ·ï¼š</p>
+
+<pre><code>$ ssh git@gitserver
+PTY allocation request failed on channel 0
+fatal: unrecognized command &#39;gitosis-serve schacon@quaternion&#39;
+  Connection to gitserver closed.</code></pre>
+
+<p>è¯´æ˜ Gitosis è®¤å‡ºäº†è¯¥ç”¨æˆ·çš„èº«ä»½ï¼Œä½†ç”±äºæ²¡æœ‰è¿è¡Œä»»ä½• Git å‘½ä»¤ï¼Œæ‰€ä»¥å®ƒåˆ‡æ–­äº†è¿æ¥ã€‚é‚£ä¹ˆï¼Œç°åœ¨è¿è¡Œä¸€ä¸ªå®é™…çš„ Git å‘½ä»¤ â€” å…‹éš† Gitosis çš„æ§åˆ¶ä»“åº“ï¼š</p>
+
+<pre><code># åœ¨ä½ æœ¬åœ°è®¡ç®—æœºä¸Š
+$ git clone git@gitserver:gitosis-admin.git</code></pre>
+
+<p>è¿™ä¼šå¾—åˆ°ä¸€ä¸ªåä¸º <code>gitosis-admin</code> çš„å·¥ä½œç›®å½•ï¼Œä¸»è¦ç”±ä¸¤éƒ¨åˆ†ç»„æˆï¼š</p>
+
+<pre><code>$ cd gitosis-admin
+$ find .
+./gitosis.conf
+./keydir
+./keydir/scott.pub</code></pre>
+
+<p><code>gitosis.conf</code> æ–‡ä»¶æ˜¯ç”¨æ¥è®¾ç½®ç”¨æˆ·ã€ä»“åº“å’Œæƒé™çš„æ§åˆ¶æ–‡ä»¶ã€‚<code>keydir</code> ç›®å½•åˆ™æ˜¯ä¿å­˜æ‰€æœ‰å…·æœ‰è®¿é—®æƒé™ç”¨æˆ·å…¬é’¥çš„åœ°æ–¹â€” æ¯äººä¸€ä¸ªã€‚åœ¨ <code>keydir</code> é‡Œçš„æ–‡ä»¶åï¼ˆæ¯”å¦‚ä¸Šé¢çš„ <code>scott.pub</code>ï¼‰åº”è¯¥è·Ÿä½ çš„ä¸ä¸€æ · â€” Gitosis ä¼šè‡ªåŠ¨ä»ä½¿ç”¨ <code>gitosis-init</code> è„šæœ¬å¯¼å…¥çš„å…¬é’¥å°¾éƒ¨çš„æè¿°ä¸­è·å–è¯¥åå­—ã€‚</p>
+
+<p>çœ‹ä¸€ä¸‹ <code>gitosis.conf</code> æ–‡ä»¶çš„å†…å®¹ï¼Œå®ƒåº”è¯¥åªåŒ…å«ä¸åˆšåˆšå…‹éš†çš„ <code>gitosis-admin</code> ç›¸å…³çš„ä¿¡æ¯ï¼š</p>
+
+<pre><code>$ cat gitosis.conf 
+[gitosis]
+
+[group gitosis-admin]
+writable = gitosis-admin
+members = scott</code></pre>
+
+<p>å®ƒæ˜¾ç¤ºç”¨æˆ· <code>scott</code> â€” åˆå§‹åŒ– Gitosis å…¬é’¥çš„æ‹¥æœ‰è€… â€” æ˜¯å”¯ä¸€èƒ½ç®¡ç† <code>gitosis-admin</code> é¡¹ç›®çš„äººã€‚</p>
+
+<p>ç°åœ¨æˆ‘ä»¬æ¥æ·»åŠ ä¸€ä¸ªæ–°é¡¹ç›®ã€‚ä¸ºæ­¤æˆ‘ä»¬è¦å»ºç«‹ä¸€ä¸ªåä¸º <code>mobile</code> çš„æ–°æ®µè½ï¼Œåœ¨å…¶ä¸­ç½—åˆ—æ‰‹æœºå¼€å‘å›¢é˜Ÿçš„å¼€å‘è€…ï¼Œä»¥åŠä»–ä»¬æ‹¥æœ‰å†™æƒé™çš„é¡¹ç›®ã€‚ç”±äº &#8216;scott&#8217; æ˜¯ç³»ç»Ÿä¸­çš„å”¯ä¸€ç”¨æˆ·ï¼Œæˆ‘ä»¬æŠŠä»–è®¾ä¸ºå”¯ä¸€ç”¨æˆ·ï¼Œå¹¶å…è®¸ä»–è¯»å†™åä¸º <code>iphone_project</code> çš„æ–°é¡¹ç›®ï¼š</p>
+
+<pre><code>[group mobile]
+writable = iphone_project
+members = scott</code></pre>
+
+<p>ä¿®æ”¹å®Œä¹‹åï¼Œæäº¤ <code>gitosis-admin</code> é‡Œçš„æ”¹åŠ¨ï¼Œå¹¶æ¨é€åˆ°æœåŠ¡å™¨ä½¿å…¶ç”Ÿæ•ˆï¼š</p>
+
+<pre><code>$ git commit -am &#39;add iphone_project and mobile group&#39;
+[master]: created 8962da8: &quot;changed name&quot;
+ 1 files changed, 4 insertions(+), 0 deletions(-)
+$ git push
+Counting objects: 5, done.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 272 bytes, done.
+Total 3 (delta 1), reused 0 (delta 0)
+To git@gitserver:/opt/git/gitosis-admin.git
+   fb27aec..8962da8  master -&gt; master</code></pre>
+
+<p>åœ¨æ–°å·¥ç¨‹ <code>iphone_project</code> é‡Œé¦–æ¬¡æ¨é€æ•°æ®åˆ°æœåŠ¡å™¨å‰ï¼Œå¾—å…ˆè®¾å®šè¯¥æœåŠ¡å™¨åœ°å€ä¸ºè¿œç¨‹ä»“åº“ã€‚ä½†ä½ ä¸ç”¨äº‹å…ˆåˆ°æœåŠ¡å™¨ä¸Šæ‰‹å·¥åˆ›å»ºè¯¥é¡¹ç›®çš„è£¸ä»“åº“â€” Gitosis ä¼šåœ¨ç¬¬ä¸€æ¬¡é‡åˆ°æ¨é€æ—¶è‡ªåŠ¨åˆ›å»ºï¼š</p>
+
+<pre><code>$ git remote add origin git@gitserver:iphone_project.git
+$ git push origin master
+Initialized empty Git repository in /opt/git/iphone_project.git/
+Counting objects: 3, done.
+Writing objects: 100% (3/3), 230 bytes, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To git@gitserver:iphone_project.git
+ * [new branch]      master -&gt; master</code></pre>
+
+<p>è¯·æ³¨æ„ï¼Œè¿™é‡Œä¸ç”¨æŒ‡æ˜å®Œæ•´è·¯å¾„ï¼ˆå®é™…ä¸Šï¼Œå¦‚æœåŠ ä¸Šåè€Œæ²¡ç”¨ï¼‰ï¼Œåªéœ€è¦ä¸€ä¸ªå†’å·åŠ é¡¹ç›®åå­—å³å¯ â€” Gitosis ä¼šè‡ªåŠ¨å¸®ä½ æ˜ å°„åˆ°å®é™…ä½ç½®ã€‚</p>
+
+<p>è¦å’Œæœ‹å‹ä»¬åœ¨ä¸€ä¸ªé¡¹ç›®ä¸ŠååŒå·¥ä½œï¼Œå°±å¾—é‡æ–°æ·»åŠ ä»–ä»¬çš„å…¬é’¥ã€‚ä¸è¿‡è¿™æ¬¡ä¸ç”¨åœ¨æœåŠ¡å™¨ä¸Šä¸€ä¸ªä¸€ä¸ªæ‰‹å·¥æ·»åŠ åˆ° <code>~/.ssh/authorized_keys</code> æ–‡ä»¶æœ«ç«¯ï¼Œè€Œåªéœ€ç®¡ç† <code>keydir</code> ç›®å½•ä¸­çš„å…¬é’¥æ–‡ä»¶ã€‚æ–‡ä»¶çš„å‘½åå°†å†³å®šåœ¨ <code>gitosis.conf</code> ä¸­å¯¹ç”¨æˆ·çš„æ ‡è¯†ã€‚ç°åœ¨æˆ‘ä»¬ä¸º Johnï¼ŒJosie å’Œ Jessica æ·»åŠ å…¬é’¥ï¼š</p>
+
+<pre><code>$ cp /tmp/id_rsa.john.pub keydir/john.pub
+$ cp /tmp/id_rsa.josie.pub keydir/josie.pub
+$ cp /tmp/id_rsa.jessica.pub keydir/jessica.pub</code></pre>
+
+<p>ç„¶åæŠŠä»–ä»¬éƒ½åŠ è¿› &#8216;mobile&#8217; å›¢é˜Ÿï¼Œè®©ä»–ä»¬å¯¹ <code>iphone_project</code> å…·æœ‰è¯»å†™æƒé™ï¼š</p>
+
+<pre><code>[group mobile]
+writable = iphone_project
+members = scott john josie jessica</code></pre>
+
+<p>å¦‚æœä½ æäº¤å¹¶æ¨é€è¿™ä¸ªä¿®æ”¹ï¼Œå››ä¸ªç”¨æˆ·å°†åŒæ—¶å…·æœ‰è¯¥é¡¹ç›®çš„è¯»å†™æƒé™ã€‚</p>
+
+<p>Gitosis ä¹Ÿå…·æœ‰ç®€å•çš„è®¿é—®æ§åˆ¶åŠŸèƒ½ã€‚å¦‚æœæƒ³è®© John åªæœ‰è¯»æƒé™ï¼Œå¯ä»¥è¿™æ ·åšï¼š</p>
+
+<pre><code>[group mobile]
+writable = iphone_project
+members = scott josie jessica
+
+[group mobile_ro]
+readonly = iphone_project
+members = john</code></pre>
+
+<p>ç°åœ¨ John å¯ä»¥å…‹éš†å’Œè·å–æ›´æ–°ï¼Œä½† Gitosis ä¸ä¼šå…è®¸ä»–å‘é¡¹ç›®æ¨é€ä»»ä½•å†…å®¹ã€‚åƒè¿™æ ·çš„ç»„å¯ä»¥éšæ„åˆ›å»ºï¼Œå¤šå°‘ä¸é™ï¼Œæ¯ä¸ªéƒ½å¯ä»¥åŒ…å«è‹¥å¹²ä¸åŒçš„ç”¨æˆ·å’Œé¡¹ç›®ã€‚ç”šè‡³è¿˜å¯ä»¥æŒ‡å®šæŸä¸ªç»„ä¸ºæˆå‘˜ä¹‹ä¸€ï¼ˆåœ¨ç»„åå‰åŠ ä¸Š <code>@</code> å‰ç¼€ï¼‰ï¼Œè‡ªåŠ¨ç»§æ‰¿è¯¥ç»„çš„æˆå‘˜ï¼š</p>
+
+<pre><code>[group mobile_committers]
+members = scott josie jessica
+
+[group mobile]
+writable  = iphone_project
+members   = @mobile_committers
+
+[group mobile_2]
+writable  = another_iphone_project
+members   = @mobile_committers john</code></pre>
+
+<p>å¦‚æœé‡åˆ°æ„å¤–é—®é¢˜ï¼Œè¯•è¯•çœ‹æŠŠ <code>loglevel=DEBUG</code> åŠ åˆ° <code>[gitosis]</code> çš„æ®µè½ï¼ˆè¯‘æ³¨ï¼šæŠŠæ—¥å¿—è®¾ç½®ä¸ºè°ƒè¯•çº§åˆ«ï¼Œè®°å½•æ›´è¯¦ç»†çš„è¿è¡Œä¿¡æ¯ã€‚ï¼‰ã€‚å¦‚æœä¸€ä¸å°å¿ƒæé”™äº†é…ç½®ï¼Œå¤±å»äº†æ¨é€æƒé™ï¼Œä¹Ÿå¯ä»¥æ‰‹å·¥ä¿®æ”¹æœåŠ¡å™¨ä¸Šçš„ <code>/home/git/.gitosis.conf</code> æ–‡ä»¶ â€” Gitosis å®é™…æ˜¯ä»è¯¥æ–‡ä»¶è¯»å–ä¿¡æ¯çš„ã€‚å®ƒåœ¨å¾—åˆ°æ¨é€æ•°æ®æ—¶ï¼Œä¼šæŠŠæ–°çš„ <code>gitosis.conf</code> å­˜åˆ°è¯¥è·¯å¾„ä¸Šã€‚æ‰€ä»¥å¦‚æœä½ æ‰‹å·¥ç¼–è¾‘è¯¥æ–‡ä»¶çš„è¯ï¼Œå®ƒä¼šä¸€ç›´ä¿æŒåˆ°ä¸‹æ¬¡å‘ <code>gitosis-admin</code> æ¨é€æ–°ç‰ˆæœ¬çš„é…ç½®å†…å®¹ä¸ºæ­¢ã€‚</p>
+
+<div id='nav'>
+<a href="ch4-6.html" tppabs="http://progit.org/book/zh/ch4-6.html">prev</a> | <a href="ch4-8.html" tppabs="http://progit.org/book/zh/ch4-8.html">next</a>
+</div>
+        <div class='clearfix'></div>
+      </div>
+    </div>
+    <div id='footer'>
+      Book translated into 
+        <a href="javascript:if(confirm('http://progit.org/book/de  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/de'" tppabs="http://progit.org/book/de">German</a>, 
+        <a href="javascript:if(confirm('http://progit.org/book/zh  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/zh'" tppabs="http://progit.org/book/zh">Chinese</a>, 
+        <a href="javascript:if(confirm('http://progit.org/book/ja  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/ja'" tppabs="http://progit.org/book/ja">Japanese</a> and 
+        <a href="javascript:if(confirm('http://progit.org/book/nl  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/nl'" tppabs="http://progit.org/book/nl">Dutch</a>.<br/>
+      Partial translations available in 
+        <a href="javascript:if(confirm('http://progit.org/book/ar  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/ar'" tppabs="http://progit.org/book/ar">Arabic</a>,
+        <a href="javascript:if(confirm('http://progit.org/book/cs  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/cs'" tppabs="http://progit.org/book/cs">Czech</a>,
+        <a href="javascript:if(confirm('http://progit.org/book/es  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/es'" tppabs="http://progit.org/book/es">Spanish</a>,
+        <a href="javascript:if(confirm('http://progit.org/book/fr  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/fr'" tppabs="http://progit.org/book/fr">French</a>,
+        <a href="javascript:if(confirm('http://progit.org/book/id  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/id'" tppabs="http://progit.org/book/id">Indonesian</a>,
+        <a href="javascript:if(confirm('http://progit.org/book/it  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/it'" tppabs="http://progit.org/book/it">Italian</a>,
+        <a href="javascript:if(confirm('http://progit.org/book/mk  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/mk'" tppabs="http://progit.org/book/mk">Macedonian</a>,
+        <a href="javascript:if(confirm('http://progit.org/book/pl  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/pl'" tppabs="http://progit.org/book/pl">Polish</a>,
+        <a href="javascript:if(confirm('http://progit.org/book/th  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/th'" tppabs="http://progit.org/book/th">Thai</a> and
+        <a href="javascript:if(confirm('http://progit.org/book/ru  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/ru'" tppabs="http://progit.org/book/ru">Russian</a>
+        .<br/>
+      All content under <a href="javascript:if(confirm('http://creativecommons.org/licenses/by-nc-sa/3.0/us/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://creativecommons.org/licenses/by-nc-sa/3.0/us/'" tppabs="http://creativecommons.org/licenses/by-nc-sa/3.0/us/">Creative Commons Attribution-Non Commercial-Share Alike 3.0 license</a>.
+      <br/>Theme and code by <a href="javascript:if(confirm('http://github.com/mbleigh  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://github.com/mbleigh'" tppabs="http://github.com/mbleigh">Michael Bleigh</a>. Hosted by <a href="javascript:if(confirm('http://github.com/progit/progit.github.com/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://github.com/progit/progit.github.com/'" tppabs="http://github.com/progit/progit.github.com/" target='_blank'>GitHub</a> and powered by <a href="javascript:if(confirm('http://github.com/mojombo/jekyll  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://github.com/mojombo/jekyll'" tppabs="http://github.com/mojombo/jekyll">Jekyll</a>.
+    </div>
+    <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www./");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    try {
+    var pageTracker = _gat._getTracker("UA-82337-15");
+    pageTracker._trackPageview();
+    } catch(err) {}</script>
+  </body>
+</html>

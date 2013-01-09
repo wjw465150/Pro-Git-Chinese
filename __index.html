@@ -1,0 +1,167 @@
+<html>
+  <head>
+    <style type="text/css">
+      @import "./js/dojo/resources/dojo.css";
+      @import "./js/dijit/themes/claro/claro.css";
+      html, body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+        font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+        font-size: 11px;
+      }
+      
+      #borderContainer {
+        width: 100%;
+        height: 100%;
+      }
+      
+      #title {
+        background-color: #d0e3f5;
+        padding: 0.3em;
+        font-size: 12;
+        color: #5a5a5a;
+      }
+    </style>
+    
+		<script type="text/javascript">
+      djConfig = {
+        parseOnLoad : false,
+        isDebug : false
+      };
+    </script>
+		
+    <!-- 注意必须手动parse,因为chrome禁止针对file://的XHR请求  -->
+    <script src="./js/dojo/dojo.js" >
+    </script>
+    <script src="./js/dojo/wjw-dojo.js" >
+    </script>
+    <script src="./js/dijit/nls/wjw-dijit_zh-cn.js" >
+    </script>
+    <script src="./js/dijit/wjw-dijit.js" >
+    </script>
+    <script src="./menus.js" charset="UTF-8">
+    </script>
+    <script type="text/javascript">
+      dojo.require("dojo.parser");
+      dojo.require("dojo.data.ItemFileReadStore");
+      
+      dojo.require("dijit.layout.BorderContainer");
+      dojo.require("dijit.layout.ContentPane");
+      dojo.require("dijit.Tree");
+      
+      function collapseAll(branches, myTree){
+        if (branches == null) {
+          if (myTree == null) {
+            myTree = dijit.byId('mytree');
+          }
+          
+          branches = myTree.rootNode.getChildren();
+        }
+        var branch;
+        for (var i = 0; i < branches.length; i += 1) {
+          branch = branches[i];
+          collapseAll(branch.getChildren(), myTree);
+          myTree._collapseNode(branch);
+        }
+      }
+      
+      function expandAll(branches, myTree){
+        if (branches == null) {
+          if (myTree == null) {
+            myTree = dijit.byId('mytree');
+          }
+          
+          branches = myTree.rootNode.getChildren();
+        }
+        var branch;
+        for (var i = 0; i < branches.length; i += 1) {
+          branch = branches[i];
+          expandAll(branch.getChildren(), myTree);
+          myTree._expandNode(branch);
+        }
+      }
+      
+      function collapseChild(){
+        var myTree = dijit.byId('mytree');
+				var selectItem = myTree.path[myTree.path.length-1];
+        var childNodes = myTree.getNodesByItem(selectItem);
+
+        var branch;
+        for (var i = 0; i < childNodes.length; i += 1) {
+          branch = childNodes[i]
+          collapseAll(branch.getChildren(), myTree);
+          myTree._collapseNode(branch);
+        }
+      }
+
+      function expandChild(){
+        var myTree = dijit.byId('mytree');
+				var selectItem = myTree.path[myTree.path.length-1];
+        var childNodes = myTree.getNodesByItem(selectItem);
+
+        var branch;
+        for (var i = 0; i < childNodes.length; i += 1) {
+          branch = childNodes[i]
+          expandAll(branch.getChildren(), myTree);
+          myTree._expandNode(branch);
+        }
+      }
+			
+      var continentStore;
+      dojo.ready(function(){
+        //if(dojo.isIE) {
+				  dojo.attr(dojo.byId("mytree"),"autoExpand","false");
+				//}
+
+			  //手工创建ItemFileReadStore
+        continentStore = new dojo.data.ItemFileReadStore({
+          data: wjw_tree_menus
+        });
+        dojo.parser.parse();
+        
+        dijit.byId("mytree").getTooltip = function(item){
+          return item.title;
+        };
+
+				dojo.query("span .dijitTreeLabel").forEach(function(node, i){  //为了解决Dojo的BUG
+          dojo.attr(node.parentNode.parentNode,"title",node.firstChild.nodeValue);
+        });
+								
+      });
+    </script>
+		<title>
+      Git中文指南
+    </title>
+  </head>
+  <body class="claro">
+    <div dojoType="dijit.tree.TreeStoreModel" jsId="continentModel" store="continentStore" query="{title:'*'}" childrenAttrs="items">
+      <script type="dojo/method" event="mayHaveChildren" args="item">
+        var items = continentStore.getValues(item, "items");
+        return items.length > 0;
+      </script>
+    </div>
+    <div id="borderContainer" dojoType="dijit.layout.BorderContainer">
+      <div id="left" dojoType="dijit.layout.BorderContainer" region="left" splitter="true" style="width: 300px;">
+        <div id="title" dojoType="dijit.layout.ContentPane" region="top">
+          <a href="javascript: expandAll(null,null);">全部展开</a>
+          | <a href="javascript: collapseAll(null,null);">全部收缩</a>
+					&nbsp;&nbsp;&nbsp;&nbsp;
+          <a href="javascript: expandChild();">展开</a>
+          | <a href="javascript: collapseChild();">收缩</a>
+        </div>
+        <div dojoType="dijit.layout.ContentPane" region="center">
+          <div dojoType="dijit.Tree" id="mytree" model="continentModel" showRoot="true" persist="false" autoExpand="true" openOnDblClick="true">
+            <script type="dojo/method" event="onClick" args="item">
+							dojo.byId("ibody").src = item.url;
+            </script>
+          </div>
+        </div>
+      </div>
+      <div id="content_body" jsId="content_body" dojoType="dijit.layout.ContentPane" region="center">
+        <iframe id="ibody" src="index.html" style="width: 100%; height: 100%; border: none"/>
+      </div>
+    </div>
+  </body>
+</html>

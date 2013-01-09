@@ -1,0 +1,278 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Pro Git - Pro Git 2.6 Git åŸºç¡€ æ‰“æ ‡ç­¾</title>
+    <link rel="stylesheet" href="master.css" tppabs="http://progit.org/stylesheets/master.css" type="text/css" media="screen" charset="utf-8"/>
+    <script src="jquery.js" tppabs="http://progit.org/javascripts/jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="jquery.github.js" tppabs="http://progit.org/javascripts/jquery.github.js" type="text/javascript" charset="utf-8"></script>
+    <link rel='alternate' type='application/rss+xml' href='http://feeds.feedburner.com/ProGitBook' />
+  </head>
+  <body>
+    <div id='wrapper'>
+      <div id='header'>
+        <h1>Pro Git</h1>
+        <h2>professional version control</h2>
+      </div>
+      <div id='menu'>
+        <ul>
+          <li><a href="javascript:if(confirm('http://progit.org/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/'" tppabs="http://progit.org/">Home</a></li>
+          <li><a href="javascript:if(confirm('http://progit.org/book  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book'" tppabs="http://progit.org/book">Book</a></li>
+          <li><a href="javascript:if(confirm('http://progit.org/blog.html  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/blog.html'" tppabs="http://progit.org/blog.html">Blog</a></li>
+          <li><a href="javascript:if(confirm('http://progit.org/about.html  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/about.html'" tppabs="http://progit.org/about.html">About</a></li>
+          <li><a href="javascript:if(confirm('http://progit.org/support.html  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/support.html'" tppabs="http://progit.org/support.html">Support Us</a></li>
+          <li><a href="javascript:if(confirm('http://github.com/progit  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://github.com/progit'" tppabs="http://github.com/progit" target='_blank' rel='me'>GitHub</a></li>
+          <li><a href="javascript:if(confirm('http://twitter.com/twitter  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://twitter.com/twitter'" tppabs="http://twitter.com/twitter" target='_blank' rel='me'>Twitter</a></li>
+        </ul>
+      </div>
+      <div id="message">
+        This is an in-progress translation. <br/>
+        To help translate the book, please
+        fork the book <a href="javascript:if(confirm('http://github.com/progit/progit  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://github.com/progit/progit'" tppabs="http://github.com/progit/progit">at GitHub</a> and push your contributions.
+      </div>
+      <div id='content'>
+        <h2 id='id266'>æ‰“æ ‡ç­¾</h2>
+
+<p>åŒå¤§å¤šæ•° VCS ä¸€æ ·ï¼ŒGit ä¹Ÿå¯ä»¥å¯¹æŸä¸€æ—¶é—´ç‚¹ä¸Šçš„ç‰ˆæœ¬æ‰“ä¸Šæ ‡ç­¾ã€‚äººä»¬åœ¨å‘å¸ƒæŸä¸ªè½¯ä»¶ç‰ˆæœ¬ï¼ˆæ¯”å¦‚ v1.0 ç­‰ç­‰ï¼‰çš„æ—¶å€™ï¼Œç»å¸¸è¿™ä¹ˆåšã€‚æœ¬èŠ‚æˆ‘ä»¬ä¸€èµ·æ¥å­¦ä¹ å¦‚ä½•åˆ—å‡ºæ‰€æœ‰å¯ç”¨çš„æ ‡ç­¾ï¼Œå¦‚ä½•æ–°å»ºæ ‡ç­¾ï¼Œä»¥åŠå„ç§ä¸åŒç±»å‹æ ‡ç­¾ä¹‹é—´çš„å·®åˆ«ã€‚</p>
+
+<h3 id='id267'>åˆ—æ˜¾å·²æœ‰çš„æ ‡ç­¾</h3>
+
+<p>åˆ—å‡ºç°æœ‰æ ‡ç­¾çš„å‘½ä»¤éå¸¸ç®€å•ï¼Œç›´æ¥è¿è¡Œ <code>git tag</code> å³å¯ï¼š</p>
+
+<pre><code>$ git tag
+v0.1
+v1.3</code></pre>
+
+<p>æ˜¾ç¤ºçš„æ ‡ç­¾æŒ‰å­—æ¯é¡ºåºæ’åˆ—ï¼Œæ‰€ä»¥æ ‡ç­¾çš„å…ˆåå¹¶ä¸è¡¨ç¤ºé‡è¦ç¨‹åº¦çš„è½»é‡ã€‚</p>
+
+<p>æˆ‘ä»¬å¯ä»¥ç”¨ç‰¹å®šçš„æœç´¢æ¨¡å¼åˆ—å‡ºç¬¦åˆæ¡ä»¶çš„æ ‡ç­¾ã€‚åœ¨ Git è‡ªèº«é¡¹ç›®ä»“åº“ä¸­ï¼Œæœ‰ç€è¶…è¿‡ 240 ä¸ªæ ‡ç­¾ï¼Œå¦‚æœä½ åªå¯¹ 1.4.2 ç³»åˆ—çš„ç‰ˆæœ¬æ„Ÿå…´è¶£ï¼Œå¯ä»¥è¿è¡Œä¸‹é¢çš„å‘½ä»¤ï¼š</p>
+
+<pre><code>$ git tag -l &#39;v1.4.2.*&#39;
+v1.4.2.1
+v1.4.2.2
+v1.4.2.3
+v1.4.2.4</code></pre>
+
+<h3 id='id268'>æ–°å»ºæ ‡ç­¾</h3>
+
+<p>Git ä½¿ç”¨çš„æ ‡ç­¾æœ‰ä¸¤ç§ç±»å‹ï¼šè½»é‡çº§çš„ï¼ˆlightweightï¼‰å’Œå«é™„æ³¨çš„ï¼ˆannotatedï¼‰ã€‚è½»é‡çº§æ ‡ç­¾å°±åƒæ˜¯ä¸ªä¸ä¼šå˜åŒ–çš„åˆ†æ”¯ï¼Œå®é™…ä¸Šå®ƒå°±æ˜¯ä¸ªæŒ‡å‘ç‰¹å®šæäº¤å¯¹è±¡çš„å¼•ç”¨ã€‚è€Œå«é™„æ³¨æ ‡ç­¾ï¼Œå®é™…ä¸Šæ˜¯å­˜å‚¨åœ¨ä»“åº“ä¸­çš„ä¸€ä¸ªç‹¬ç«‹å¯¹è±¡ï¼Œå®ƒæœ‰è‡ªèº«çš„æ ¡éªŒå’Œä¿¡æ¯ï¼ŒåŒ…å«ç€æ ‡ç­¾çš„åå­—ï¼Œç”µå­é‚®ä»¶åœ°å€å’Œæ—¥æœŸï¼Œä»¥åŠæ ‡ç­¾è¯´æ˜ï¼Œæ ‡ç­¾æœ¬èº«ä¹Ÿå…è®¸ä½¿ç”¨ GNU Privacy Guard (GPG) æ¥ç­¾ç½²æˆ–éªŒè¯ã€‚ä¸€èˆ¬æˆ‘ä»¬éƒ½å»ºè®®ä½¿ç”¨å«é™„æ³¨å‹çš„æ ‡ç­¾ï¼Œä»¥ä¾¿ä¿ç•™ç›¸å…³ä¿¡æ¯ï¼›å½“ç„¶ï¼Œå¦‚æœåªæ˜¯ä¸´æ—¶æ€§åŠ æ³¨æ ‡ç­¾ï¼Œæˆ–è€…ä¸éœ€è¦æ—æ³¨é¢å¤–ä¿¡æ¯ï¼Œç”¨è½»é‡çº§æ ‡ç­¾ä¹Ÿæ²¡é—®é¢˜ã€‚</p>
+
+<h3 id='id269'>å«é™„æ³¨çš„æ ‡ç­¾</h3>
+
+<p>åˆ›å»ºä¸€ä¸ªå«é™„æ³¨ç±»å‹çš„æ ‡ç­¾éå¸¸ç®€å•ï¼Œç”¨ <code>-a</code> ï¼ˆè¯‘æ³¨ï¼šå– <code>annotated</code> çš„é¦–å­—æ¯ï¼‰æŒ‡å®šæ ‡ç­¾åå­—å³å¯ï¼š</p>
+
+<pre><code>$ git tag -a v1.4 -m &#39;my version 1.4&#39;
+$ git tag
+v0.1
+v1.3
+v1.4</code></pre>
+
+<p>è€Œ <code>-m</code> é€‰é¡¹åˆ™æŒ‡å®šäº†å¯¹åº”çš„æ ‡ç­¾è¯´æ˜ï¼ŒGit ä¼šå°†æ­¤è¯´æ˜ä¸€åŒä¿å­˜åœ¨æ ‡ç­¾å¯¹è±¡ä¸­ã€‚å¦‚æœæ²¡æœ‰ç»™å‡ºè¯¥é€‰é¡¹ï¼ŒGit ä¼šå¯åŠ¨æ–‡æœ¬ç¼–è¾‘è½¯ä»¶ä¾›ä½ è¾“å…¥æ ‡ç­¾è¯´æ˜ã€‚</p>
+
+<p>å¯ä»¥ä½¿ç”¨ <code>git show</code> å‘½ä»¤æŸ¥çœ‹ç›¸åº”æ ‡ç­¾çš„ç‰ˆæœ¬ä¿¡æ¯ï¼Œå¹¶è¿åŒæ˜¾ç¤ºæ‰“æ ‡ç­¾æ—¶çš„æäº¤å¯¹è±¡ã€‚</p>
+
+<pre><code>$ git show v1.4
+tag v1.4
+Tagger: Scott Chacon &lt;schacon@gee-mail.com&gt;
+Date:   Mon Feb 9 14:45:11 2009 -0800
+
+my version 1.4
+commit 15027957951b64cf874c3557a0f3547bd83b3ff6
+Merge: 4a447f7... a6b4c97...
+Author: Scott Chacon &lt;schacon@gee-mail.com&gt;
+Date:   Sun Feb 8 19:02:46 2009 -0800
+
+    Merge branch &#39;experiment&#39;</code></pre>
+
+<p>æˆ‘ä»¬å¯ä»¥çœ‹åˆ°åœ¨æäº¤å¯¹è±¡ä¿¡æ¯ä¸Šé¢ï¼Œåˆ—å‡ºäº†æ­¤æ ‡ç­¾çš„æäº¤è€…å’Œæäº¤æ—¶é—´ï¼Œä»¥åŠç›¸åº”çš„æ ‡ç­¾è¯´æ˜ã€‚</p>
+
+<h3 id='id270'>ç­¾ç½²æ ‡ç­¾</h3>
+
+<p>å¦‚æœä½ æœ‰è‡ªå·±çš„ç§é’¥ï¼Œè¿˜å¯ä»¥ç”¨ GPG æ¥ç­¾ç½²æ ‡ç­¾ï¼Œåªéœ€è¦æŠŠä¹‹å‰çš„ <code>-a</code> æ”¹ä¸º <code>-s</code> ï¼ˆè¯‘æ³¨ï¼š å– <code>signed</code> çš„é¦–å­—æ¯ï¼‰å³å¯ï¼š</p>
+
+<pre><code>$ git tag -s v1.5 -m &#39;my signed 1.5 tag&#39;
+You need a passphrase to unlock the secret key for
+user: &quot;Scott Chacon &lt;schacon@gee-mail.com&gt;&quot;
+1024-bit DSA key, ID F721C45A, created 2009-02-09</code></pre>
+
+<p>ç°åœ¨å†è¿è¡Œ <code>git show</code> ä¼šçœ‹åˆ°å¯¹åº”çš„ GPG ç­¾åä¹Ÿé™„åœ¨å…¶å†…ï¼š</p>
+
+<pre><code>$ git show v1.5
+tag v1.5
+Tagger: Scott Chacon &lt;schacon@gee-mail.com&gt;
+Date:   Mon Feb 9 15:22:20 2009 -0800
+
+my signed 1.5 tag
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.8 (Darwin)
+
+iEYEABECAAYFAkmQurIACgkQON3DxfchxFr5cACeIMN+ZxLKggJQf0QYiQBwgySN
+Ki0An2JeAVUCAiJ7Ox6ZEtK+NvZAj82/
+=WryJ
+-----END PGP SIGNATURE-----
+commit 15027957951b64cf874c3557a0f3547bd83b3ff6
+Merge: 4a447f7... a6b4c97...
+Author: Scott Chacon &lt;schacon@gee-mail.com&gt;
+Date:   Sun Feb 8 19:02:46 2009 -0800
+
+    Merge branch &#39;experiment&#39;</code></pre>
+
+<p>ç¨åæˆ‘ä»¬å†å­¦ä¹ å¦‚ä½•éªŒè¯å·²ç»ç­¾ç½²çš„æ ‡ç­¾ã€‚</p>
+
+<h3 id='id271'>è½»é‡çº§æ ‡ç­¾</h3>
+
+<p>è½»é‡çº§æ ‡ç­¾å®é™…ä¸Šå°±æ˜¯ä¸€ä¸ªä¿å­˜ç€å¯¹åº”æäº¤å¯¹è±¡çš„æ ¡éªŒå’Œä¿¡æ¯çš„æ–‡ä»¶ã€‚è¦åˆ›å»ºè¿™æ ·çš„æ ‡ç­¾ï¼Œä¸€ä¸ª <code>-a</code>ï¼Œ<code>-s</code> æˆ– <code>-m</code> é€‰é¡¹éƒ½ä¸ç”¨ï¼Œç›´æ¥ç»™å‡ºæ ‡ç­¾åå­—å³å¯ï¼š</p>
+
+<pre><code>$ git tag v1.4-lw
+$ git tag
+v0.1
+v1.3
+v1.4
+v1.4-lw
+v1.5</code></pre>
+
+<p>ç°åœ¨è¿è¡Œ <code>git show</code> æŸ¥çœ‹æ­¤æ ‡ç­¾ä¿¡æ¯ï¼Œå°±åªæœ‰ç›¸åº”çš„æäº¤å¯¹è±¡æ‘˜è¦ï¼š</p>
+
+<pre><code>$ git show v1.4-lw
+commit 15027957951b64cf874c3557a0f3547bd83b3ff6
+Merge: 4a447f7... a6b4c97...
+Author: Scott Chacon &lt;schacon@gee-mail.com&gt;
+Date:   Sun Feb 8 19:02:46 2009 -0800
+
+    Merge branch &#39;experiment&#39;</code></pre>
+
+<h3 id='id272'>éªŒè¯æ ‡ç­¾</h3>
+
+<p>å¯ä»¥ä½¿ç”¨ <code>git tag -v [tag-name]</code> ï¼ˆè¯‘æ³¨ï¼šå– <code>verify</code> çš„é¦–å­—æ¯ï¼‰çš„æ–¹å¼éªŒè¯å·²ç»ç­¾ç½²çš„æ ‡ç­¾ã€‚æ­¤å‘½ä»¤ä¼šè°ƒç”¨ GPG æ¥éªŒè¯ç­¾åï¼Œæ‰€ä»¥ä½ éœ€è¦æœ‰ç­¾ç½²è€…çš„å…¬é’¥ï¼Œå­˜æ”¾åœ¨ keyring ä¸­ï¼Œæ‰èƒ½éªŒè¯ï¼š</p>
+
+<pre><code>$ git tag -v v1.4.2.1
+object 883653babd8ee7ea23e6a5c392bb739348b1eb61
+type commit
+tag v1.4.2.1
+tagger Junio C Hamano &lt;junkio@cox.net&gt; 1158138501 -0700
+
+GIT 1.4.2.1
+
+Minor fixes since 1.4.2, including git-mv and git-http with alternates.
+gpg: Signature made Wed Sep 13 02:08:25 2006 PDT using DSA key ID F3119B9A
+gpg: Good signature from &quot;Junio C Hamano &lt;junkio@cox.net&gt;&quot;
+gpg:                 aka &quot;[jpeg image of size 1513]&quot;
+Primary key fingerprint: 3565 2A26 2040 E066 C9A7  4A7D C0C6 D9A4 F311 9B9A</code></pre>
+
+<p>è‹¥æ˜¯æ²¡æœ‰ç­¾ç½²è€…çš„å…¬é’¥ï¼Œä¼šæŠ¥å‘Šç±»ä¼¼ä¸‹é¢è¿™æ ·çš„é”™è¯¯ï¼š</p>
+
+<pre><code>gpg: Signature made Wed Sep 13 02:08:25 2006 PDT using DSA key ID F3119B9A
+gpg: Can&#39;t check signature: public key not found
+error: could not verify the tag &#39;v1.4.2.1&#39;</code></pre>
+
+<h3 id='id273'>åæœŸåŠ æ³¨æ ‡ç­¾</h3>
+
+<p>ä½ ç”šè‡³å¯ä»¥åœ¨åæœŸå¯¹æ—©å…ˆçš„æŸæ¬¡æäº¤åŠ æ³¨æ ‡ç­¾ã€‚æ¯”å¦‚åœ¨ä¸‹é¢å±•ç¤ºçš„æäº¤å†å²ä¸­ï¼š</p>
+
+<pre><code>$ git log --pretty=oneline
+15027957951b64cf874c3557a0f3547bd83b3ff6 Merge branch &#39;experiment&#39;
+a6b4c97498bd301d84096da251c98a07c7723e65 beginning write support
+0d52aaab4479697da7686c15f77a3d64d9165190 one more thing
+6d52a271eda8725415634dd79daabbc4d9b6008e Merge branch &#39;experiment&#39;
+0b7434d86859cc7b8c3d5e1dddfed66ff742fcbc added a commit function
+4682c3261057305bdd616e23b64b0857d832627b added a todo file
+166ae0c4d3f420721acbb115cc33848dfcc2121a started write support
+9fceb02d0ae598e95dc970b74767f19372d61af8 updated rakefile
+964f16d36dfccde844893cac5b347e7b3d44abbc commit the todo
+8a5cbc430f1a9c3d00faaeffd07798508422908a updated readme</code></pre>
+
+<p>æˆ‘ä»¬å¿˜äº†åœ¨æäº¤ â€œupdated rakefileâ€ åä¸ºæ­¤é¡¹ç›®æ‰“ä¸Šç‰ˆæœ¬å· v1.2ï¼Œæ²¡å…³ç³»ï¼Œç°åœ¨ä¹Ÿèƒ½åšã€‚åªè¦åœ¨æ‰“æ ‡ç­¾çš„æ—¶å€™è·Ÿä¸Šå¯¹åº”æäº¤å¯¹è±¡çš„æ ¡éªŒå’Œï¼ˆæˆ–å‰å‡ ä½å­—ç¬¦ï¼‰å³å¯ï¼š</p>
+
+<pre><code>$ git tag -a v1.2 9fceb02</code></pre>
+
+<p>å¯ä»¥çœ‹åˆ°æˆ‘ä»¬å·²ç»è¡¥ä¸Šäº†æ ‡ç­¾ï¼š</p>
+
+<pre><code>$ git tag
+v0.1
+v1.2
+v1.3
+v1.4
+v1.4-lw
+v1.5
+
+$ git show v1.2
+tag v1.2
+Tagger: Scott Chacon &lt;schacon@gee-mail.com&gt;
+Date:   Mon Feb 9 15:32:16 2009 -0800
+
+version 1.2
+commit 9fceb02d0ae598e95dc970b74767f19372d61af8
+Author: Magnus Chacon &lt;mchacon@gee-mail.com&gt;
+Date:   Sun Apr 27 20:43:35 2008 -0700
+
+    updated rakefile
+...</code></pre>
+
+<h3 id='id274'>åˆ†äº«æ ‡ç­¾</h3>
+
+<p>é»˜è®¤æƒ…å†µä¸‹ï¼Œ<code>git push</code> å¹¶ä¸ä¼šæŠŠæ ‡ç­¾ä¼ é€åˆ°è¿œç«¯æœåŠ¡å™¨ä¸Šï¼Œåªæœ‰é€šè¿‡æ˜¾å¼å‘½ä»¤æ‰èƒ½åˆ†äº«æ ‡ç­¾åˆ°è¿œç«¯ä»“åº“ã€‚å…¶å‘½ä»¤æ ¼å¼å¦‚åŒæ¨é€åˆ†æ”¯ï¼Œè¿è¡Œ <code>git push origin [tagname]</code> å³å¯ï¼š</p>
+
+<pre><code>$ git push origin v1.5
+Counting objects: 50, done.
+Compressing objects: 100% (38/38), done.
+Writing objects: 100% (44/44), 4.56 KiB, done.
+Total 44 (delta 18), reused 8 (delta 1)
+To git@github.com:schacon/simplegit.git
+* [new tag]         v1.5 -&gt; v1.5</code></pre>
+
+<p>å¦‚æœè¦ä¸€æ¬¡æ¨é€æ‰€æœ‰æœ¬åœ°æ–°å¢çš„æ ‡ç­¾ä¸Šå»ï¼Œå¯ä»¥ä½¿ç”¨ <code>--tags</code> é€‰é¡¹ï¼š</p>
+
+<pre><code>$ git push origin --tags
+Counting objects: 50, done.
+Compressing objects: 100% (38/38), done.
+Writing objects: 100% (44/44), 4.56 KiB, done.
+Total 44 (delta 18), reused 8 (delta 1)
+To git@github.com:schacon/simplegit.git
+ * [new tag]         v0.1 -&gt; v0.1
+ * [new tag]         v1.2 -&gt; v1.2
+ * [new tag]         v1.4 -&gt; v1.4
+ * [new tag]         v1.4-lw -&gt; v1.4-lw
+ * [new tag]         v1.5 -&gt; v1.5</code></pre>
+
+<p>ç°åœ¨ï¼Œå…¶ä»–äººå…‹éš†å…±äº«ä»“åº“æˆ–æ‹‰å–æ•°æ®åŒæ­¥åï¼Œä¹Ÿä¼šçœ‹åˆ°è¿™äº›æ ‡ç­¾ã€‚</p>
+
+<div id='nav'>
+<a href="ch2-5.html" tppabs="http://progit.org/book/zh/ch2-5.html">prev</a> | <a href="ch2-7.html" tppabs="http://progit.org/book/zh/ch2-7.html">next</a>
+</div>
+        <div class='clearfix'></div>
+      </div>
+    </div>
+    <div id='footer'>
+      Book translated into 
+        <a href="javascript:if(confirm('http://progit.org/book/de  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/de'" tppabs="http://progit.org/book/de">German</a>, 
+        <a href="javascript:if(confirm('http://progit.org/book/zh  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/zh'" tppabs="http://progit.org/book/zh">Chinese</a>, 
+        <a href="javascript:if(confirm('http://progit.org/book/ja  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/ja'" tppabs="http://progit.org/book/ja">Japanese</a> and 
+        <a href="javascript:if(confirm('http://progit.org/book/nl  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/nl'" tppabs="http://progit.org/book/nl">Dutch</a>.<br/>
+      Partial translations available in 
+        <a href="javascript:if(confirm('http://progit.org/book/ar  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/ar'" tppabs="http://progit.org/book/ar">Arabic</a>,
+        <a href="javascript:if(confirm('http://progit.org/book/cs  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/cs'" tppabs="http://progit.org/book/cs">Czech</a>,
+        <a href="javascript:if(confirm('http://progit.org/book/es  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/es'" tppabs="http://progit.org/book/es">Spanish</a>,
+        <a href="javascript:if(confirm('http://progit.org/book/fr  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/fr'" tppabs="http://progit.org/book/fr">French</a>,
+        <a href="javascript:if(confirm('http://progit.org/book/id  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/id'" tppabs="http://progit.org/book/id">Indonesian</a>,
+        <a href="javascript:if(confirm('http://progit.org/book/it  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/it'" tppabs="http://progit.org/book/it">Italian</a>,
+        <a href="javascript:if(confirm('http://progit.org/book/mk  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/mk'" tppabs="http://progit.org/book/mk">Macedonian</a>,
+        <a href="javascript:if(confirm('http://progit.org/book/pl  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/pl'" tppabs="http://progit.org/book/pl">Polish</a>,
+        <a href="javascript:if(confirm('http://progit.org/book/th  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/th'" tppabs="http://progit.org/book/th">Thai</a> and
+        <a href="javascript:if(confirm('http://progit.org/book/ru  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/ru'" tppabs="http://progit.org/book/ru">Russian</a>
+        .<br/>
+      All content under <a href="javascript:if(confirm('http://creativecommons.org/licenses/by-nc-sa/3.0/us/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://creativecommons.org/licenses/by-nc-sa/3.0/us/'" tppabs="http://creativecommons.org/licenses/by-nc-sa/3.0/us/">Creative Commons Attribution-Non Commercial-Share Alike 3.0 license</a>.
+      <br/>Theme and code by <a href="javascript:if(confirm('http://github.com/mbleigh  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://github.com/mbleigh'" tppabs="http://github.com/mbleigh">Michael Bleigh</a>. Hosted by <a href="javascript:if(confirm('http://github.com/progit/progit.github.com/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://github.com/progit/progit.github.com/'" tppabs="http://github.com/progit/progit.github.com/" target='_blank'>GitHub</a> and powered by <a href="javascript:if(confirm('http://github.com/mojombo/jekyll  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://github.com/mojombo/jekyll'" tppabs="http://github.com/mojombo/jekyll">Jekyll</a>.
+    </div>
+    <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www./");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    try {
+    var pageTracker = _gat._getTracker("UA-82337-15");
+    pageTracker._trackPageview();
+    } catch(err) {}</script>
+  </body>
+</html>

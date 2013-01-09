@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Pro Git - Pro Git 9.4 Git å†…éƒ¨åŸç† Packfiles</title>
+    <link rel="stylesheet" href="master.css" tppabs="http://progit.org/stylesheets/master.css" type="text/css" media="screen" charset="utf-8"/>
+    <script src="jquery.js" tppabs="http://progit.org/javascripts/jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="jquery.github.js" tppabs="http://progit.org/javascripts/jquery.github.js" type="text/javascript" charset="utf-8"></script>
+    <link rel='alternate' type='application/rss+xml' href='http://feeds.feedburner.com/ProGitBook' />
+  </head>
+  <body>
+    <div id='wrapper'>
+      <div id='header'>
+        <h1>Pro Git</h1>
+        <h2>professional version control</h2>
+      </div>
+      <div id='menu'>
+        <ul>
+          <li><a href="javascript:if(confirm('http://progit.org/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/'" tppabs="http://progit.org/">Home</a></li>
+          <li><a href="javascript:if(confirm('http://progit.org/book  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book'" tppabs="http://progit.org/book">Book</a></li>
+          <li><a href="javascript:if(confirm('http://progit.org/blog.html  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/blog.html'" tppabs="http://progit.org/blog.html">Blog</a></li>
+          <li><a href="javascript:if(confirm('http://progit.org/about.html  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/about.html'" tppabs="http://progit.org/about.html">About</a></li>
+          <li><a href="javascript:if(confirm('http://progit.org/support.html  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/support.html'" tppabs="http://progit.org/support.html">Support Us</a></li>
+          <li><a href="javascript:if(confirm('http://github.com/progit  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://github.com/progit'" tppabs="http://github.com/progit" target='_blank' rel='me'>GitHub</a></li>
+          <li><a href="javascript:if(confirm('http://twitter.com/twitter  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://twitter.com/twitter'" tppabs="http://twitter.com/twitter" target='_blank' rel='me'>Twitter</a></li>
+        </ul>
+      </div>
+      <div id="message">
+        This is an in-progress translation. <br/>
+        To help translate the book, please
+        fork the book <a href="javascript:if(confirm('http://github.com/progit/progit  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://github.com/progit/progit'" tppabs="http://github.com/progit/progit">at GitHub</a> and push your contributions.
+      </div>
+      <div id='content'>
+        <h2 id='packfiles'>Packfiles</h2>
+
+<p>æˆ‘ä»¬å†æ¥çœ‹ä¸€ä¸‹ test Git ä»“åº“ã€‚ç›®å‰ä¸ºæ­¢ï¼Œæœ‰ 11 ä¸ªå¯¹è±¡ â”€â”€ 4 ä¸ª blobï¼Œ3 ä¸ª treeï¼Œ3 ä¸ª commit ä»¥åŠä¸€ä¸ª tagï¼š</p>
+
+<pre><code>$ find .git/objects -type f
+.git/objects/01/55eb4229851634a0f03eb265b69f5a2d56f341 # tree 2
+.git/objects/1a/410efbd13591db07496601ebc7a059dd55cfe9 # commit 3
+.git/objects/1f/7a7a472abf3dd9643fd615f6da379c4acb3e3a # test.txt v2
+.git/objects/3c/4e9cd789d88d8d89c1073707c3585e41b0e614 # tree 3
+.git/objects/83/baae61804e65cc73a7201a7252750c76066a30 # test.txt v1
+.git/objects/95/85191f37f7b0fb9444f35a9bf50de191beadc2 # tag
+.git/objects/ca/c0cab538b970a37ea1e769cbbde608743bc96d # commit 2
+.git/objects/d6/70460b4b4aece5915caf5c68d12f560a9fe3e4 # &#39;test content&#39;
+.git/objects/d8/329fc1cc938780ffdd9f94e0d364e0ea74f579 # tree 1
+.git/objects/fa/49b077972391ad58037050f2a75f74e3671e92 # new.txt
+.git/objects/fd/f4fc3344e67ab068f836878b6c4951e3b15f3d # commit 1</code></pre>
+
+<p>Git ç”¨ zlib å‹ç¼©æ–‡ä»¶å†…å®¹ï¼Œå› æ­¤è¿™äº›æ–‡ä»¶å¹¶æ²¡æœ‰å ç”¨å¤ªå¤šç©ºé—´ï¼Œæ‰€æœ‰æ–‡ä»¶åŠ èµ·æ¥æ€»å…±ä»…ç”¨äº† 925 å­—èŠ‚ã€‚æ¥ä¸‹å»ä½ ä¼šæ·»åŠ ä¸€äº›å¤§æ–‡ä»¶ä»¥æ¼”ç¤º Git çš„ä¸€ä¸ªå¾ˆæœ‰æ„æ€çš„åŠŸèƒ½ã€‚å°†ä½ ä¹‹å‰ç”¨åˆ°è¿‡çš„ Grit åº“ä¸­çš„ repo.rb æ–‡ä»¶åŠ è¿›å» â”€â”€ è¿™ä¸ªæºä»£ç æ–‡ä»¶å¤§å°çº¦ä¸º 12Kï¼š</p>
+
+<pre><code>$ curl http://github.com/mojombo/grit/raw/master/lib/grit/repo.rb &gt; repo.rb
+$ git add repo.rb
+$ git commit -m &#39;added repo.rb&#39;
+[master 484a592] added repo.rb
+ 3 files changed, 459 insertions(+), 2 deletions(-)
+ delete mode 100644 bak/test.txt
+ create mode 100644 repo.rb
+ rewrite test.txt (100%)</code></pre>
+
+<p>å¦‚æœæŸ¥çœ‹ä¸€ä¸‹ç”Ÿæˆçš„ treeï¼Œå¯ä»¥çœ‹åˆ° repo.rb æ–‡ä»¶çš„ blob å¯¹è±¡çš„ SHA-1 å€¼ï¼š</p>
+
+<pre><code>$ git cat-file -p master^{tree}
+100644 blob fa49b077972391ad58037050f2a75f74e3671e92      new.txt
+100644 blob 9bc1dc421dcd51b4ac296e3e5b6e2a99cf44391e      repo.rb
+100644 blob e3f094f522629ae358806b17daf78246c27c007b      test.txt</code></pre>
+
+<p>ç„¶åå¯ä»¥ç”¨ <code>git cat-file</code> å‘½ä»¤æŸ¥çœ‹è¿™ä¸ªå¯¹è±¡æœ‰å¤šå¤§ï¼š</p>
+
+<pre><code>$ git cat-file -s 9bc1dc421dcd51b4ac296e3e5b6e2a99cf44391e
+12898</code></pre>
+
+<p>ç¨å¾®ä¿®æ”¹ä¸€ä¸‹äº›æ–‡ä»¶ï¼Œçœ‹ä¼šå‘ç”Ÿäº›ä»€ä¹ˆï¼š</p>
+
+<pre><code>$ echo &#39;# testing&#39; &gt;&gt; repo.rb
+$ git commit -am &#39;modified repo a bit&#39;
+[master ab1afef] modified repo a bit
+ 1 files changed, 1 insertions(+), 0 deletions(-)</code></pre>
+
+<p>æŸ¥çœ‹è¿™ä¸ª commit ç”Ÿæˆçš„ treeï¼Œå¯ä»¥çœ‹åˆ°ä¸€äº›æœ‰è¶£çš„ä¸œè¥¿ï¼š</p>
+
+<pre><code>$ git cat-file -p master^{tree}
+100644 blob fa49b077972391ad58037050f2a75f74e3671e92      new.txt
+100644 blob 05408d195263d853f09dca71d55116663690c27c      repo.rb
+100644 blob e3f094f522629ae358806b17daf78246c27c007b      test.txt</code></pre>
+
+<p>blob å¯¹è±¡ä¸ä¹‹å‰çš„å·²ç»ä¸åŒäº†ã€‚è¿™è¯´æ˜è™½ç„¶åªæ˜¯å¾€ä¸€ä¸ª 400 è¡Œçš„æ–‡ä»¶æœ€ååŠ å…¥äº†ä¸€è¡Œå†…å®¹ï¼ŒGit å´ç”¨ä¸€ä¸ªå…¨æ–°çš„å¯¹è±¡æ¥ä¿å­˜æ–°çš„æ–‡ä»¶å†…å®¹ï¼š</p>
+
+<pre><code>$ git cat-file -s 05408d195263d853f09dca71d55116663690c27c
+12908</code></pre>
+
+<p>ä½ çš„ç£ç›˜ä¸Šæœ‰äº†ä¸¤ä¸ªå‡ ä¹å®Œå…¨ç›¸åŒçš„ 12K çš„å¯¹è±¡ã€‚å¦‚æœ Git åªå®Œæ•´ä¿å­˜å…¶ä¸­ä¸€ä¸ªï¼Œå¹¶ä¿å­˜å¦ä¸€ä¸ªå¯¹è±¡çš„å·®å¼‚å†…å®¹ï¼Œå²‚ä¸æ›´å¥½ï¼Ÿ</p>
+
+<p>äº‹å®ä¸Š Git å¯ä»¥é‚£æ ·åšã€‚Git å¾€ç£ç›˜ä¿å­˜å¯¹è±¡æ—¶é»˜è®¤ä½¿ç”¨çš„æ ¼å¼å«æ¾æ•£å¯¹è±¡ (loose object) æ ¼å¼ã€‚Git æ—¶ä¸æ—¶åœ°å°†è¿™äº›å¯¹è±¡æ‰“åŒ…è‡³ä¸€ä¸ªå« packfile çš„äºŒè¿›åˆ¶æ–‡ä»¶ä»¥èŠ‚çœç©ºé—´å¹¶æé«˜æ•ˆç‡ã€‚å½“ä»“åº“ä¸­æœ‰å¤ªå¤šçš„æ¾æ•£å¯¹è±¡ï¼Œæˆ–æ˜¯æ‰‹å·¥è°ƒç”¨ <code>git gc</code> å‘½ä»¤ï¼Œæˆ–æ¨é€è‡³è¿œç¨‹æœåŠ¡å™¨æ—¶ï¼ŒGit éƒ½ä¼šè¿™æ ·åšã€‚æ‰‹å·¥è°ƒç”¨ <code>git gc</code> å‘½ä»¤è®© Git å°†åº“ä¸­å¯¹è±¡æ‰“åŒ…å¹¶çœ‹ä¼šå‘ç”Ÿäº›ä»€ä¹ˆï¼š</p>
+
+<pre><code>$ git gc
+Counting objects: 17, done.
+Delta compression using 2 threads.
+Compressing objects: 100% (13/13), done.
+Writing objects: 100% (17/17), done.
+Total 17 (delta 1), reused 10 (delta 0)</code></pre>
+
+<p>æŸ¥çœ‹ä¸€ä¸‹ objects ç›®å½•ï¼Œä¼šå‘ç°å¤§éƒ¨åˆ†å¯¹è±¡éƒ½ä¸åœ¨äº†ï¼Œä¸æ­¤åŒæ—¶å‡ºç°äº†ä¸¤ä¸ªæ–°æ–‡ä»¶ï¼š</p>
+
+<pre><code>$ find .git/objects -type f
+.git/objects/71/08f7ecb345ee9d0084193f147cdad4d2998293
+.git/objects/d6/70460b4b4aece5915caf5c68d12f560a9fe3e4
+.git/objects/info/packs
+.git/objects/pack/pack-7a16e4488ae40c7d2bc56ea2bd43e25212a66c45.idx
+.git/objects/pack/pack-7a16e4488ae40c7d2bc56ea2bd43e25212a66c45.pack</code></pre>
+
+<p>ä»ä¿ç•™ç€çš„å‡ ä¸ªå¯¹è±¡æ˜¯æœªè¢«ä»»ä½• commit å¼•ç”¨çš„ blob â”€â”€ åœ¨æ­¤ä¾‹ä¸­æ˜¯ä½ ä¹‹å‰åˆ›å»ºçš„ &#8220;what is up, doc?&#8221; å’Œ &#8220;test content&#8221; è¿™ä¸¤ä¸ªç¤ºä¾‹ blobã€‚ä½ ä»æ²¡å°†ä»–ä»¬æ·»åŠ è‡³ä»»ä½• commitï¼Œæ‰€ä»¥ Git è®¤ä¸ºå®ƒä»¬æ˜¯ &#8220;æ‚¬ç©º&#8221; çš„ï¼Œä¸ä¼šå°†å®ƒä»¬æ‰“åŒ…è¿› packfile ã€‚</p>
+
+<p>å‰©ä¸‹çš„æ–‡ä»¶æ˜¯æ–°åˆ›å»ºçš„ packfile ä»¥åŠä¸€ä¸ªç´¢å¼•ã€‚packfile æ–‡ä»¶åŒ…å«äº†åˆšæ‰ä»æ–‡ä»¶ç³»ç»Ÿä¸­ç§»é™¤çš„æ‰€æœ‰å¯¹è±¡ã€‚ç´¢å¼•æ–‡ä»¶åŒ…å«äº† packfile çš„åç§»ä¿¡æ¯ï¼Œè¿™æ ·å°±å¯ä»¥å¿«é€Ÿå®šä½ä»»æ„ä¸€ä¸ªæŒ‡å®šå¯¹è±¡ã€‚æœ‰æ„æ€çš„æ˜¯è¿è¡Œ <code>gc</code> å‘½ä»¤å‰ç£ç›˜ä¸Šçš„å¯¹è±¡å¤§å°çº¦ä¸º 12K ï¼Œè€Œè¿™ä¸ªæ–°ç”Ÿæˆçš„ packfile ä»…ä¸º 6K å¤§å°ã€‚é€šè¿‡æ‰“åŒ…å¯¹è±¡å‡å°‘äº†ä¸€åŠç£ç›˜ä½¿ç”¨ç©ºé—´ã€‚</p>
+
+<p>Git æ˜¯å¦‚ä½•åšåˆ°è¿™ç‚¹çš„ï¼ŸGit æ‰“åŒ…å¯¹è±¡æ—¶ï¼Œä¼šæŸ¥æ‰¾å‘½ååŠå°ºå¯¸ç›¸è¿‘çš„æ–‡ä»¶ï¼Œå¹¶åªä¿å­˜æ–‡ä»¶ä¸åŒç‰ˆæœ¬ä¹‹é—´çš„å·®å¼‚å†…å®¹ã€‚å¯ä»¥æŸ¥çœ‹ä¸€ä¸‹ packfile ï¼Œè§‚å¯Ÿå®ƒæ˜¯å¦‚ä½•èŠ‚çœç©ºé—´çš„ã€‚<code>git verify-pack</code> å‘½ä»¤ç”¨äºæ˜¾ç¤ºå·²æ‰“åŒ…çš„å†…å®¹ï¼š</p>
+
+<pre><code>$ git verify-pack -v \
+  .git/objects/pack/pack-7a16e4488ae40c7d2bc56ea2bd43e25212a66c45.idx
+0155eb4229851634a0f03eb265b69f5a2d56f341 tree   71 76 5400
+05408d195263d853f09dca71d55116663690c27c blob   12908 3478 874
+09f01cea547666f58d6a8d809583841a7c6f0130 tree   106 107 5086
+1a410efbd13591db07496601ebc7a059dd55cfe9 commit 225 151 322
+1f7a7a472abf3dd9643fd615f6da379c4acb3e3a blob   10 19 5381
+3c4e9cd789d88d8d89c1073707c3585e41b0e614 tree   101 105 5211
+484a59275031909e19aadb7c92262719cfcdf19a commit 226 153 169
+83baae61804e65cc73a7201a7252750c76066a30 blob   10 19 5362
+9585191f37f7b0fb9444f35a9bf50de191beadc2 tag    136 127 5476
+9bc1dc421dcd51b4ac296e3e5b6e2a99cf44391e blob   7 18 5193 1
+05408d195263d853f09dca71d55116663690c27c \
+  ab1afef80fac8e34258ff41fc1b867c702daa24b commit 232 157 12
+cac0cab538b970a37ea1e769cbbde608743bc96d commit 226 154 473
+d8329fc1cc938780ffdd9f94e0d364e0ea74f579 tree   36 46 5316
+e3f094f522629ae358806b17daf78246c27c007b blob   1486 734 4352
+f8f51d7d8a1760462eca26eebafde32087499533 tree   106 107 749
+fa49b077972391ad58037050f2a75f74e3671e92 blob   9 18 856
+fdf4fc3344e67ab068f836878b6c4951e3b15f3d commit 177 122 627
+chain length = 1: 1 object
+pack-7a16e4488ae40c7d2bc56ea2bd43e25212a66c45.pack: ok</code></pre>
+
+<p>å¦‚æœä½ è¿˜è®°å¾—çš„è¯, <code>9bc1d</code> è¿™ä¸ª blob æ˜¯ repo.rb æ–‡ä»¶çš„ç¬¬ä¸€ä¸ªç‰ˆæœ¬ï¼Œè¿™ä¸ª blob å¼•ç”¨äº† <code>05408</code> è¿™ä¸ª blobï¼Œå³è¯¥æ–‡ä»¶çš„ç¬¬äºŒä¸ªç‰ˆæœ¬ã€‚å‘½ä»¤è¾“å‡ºå†…å®¹çš„ç¬¬ä¸‰åˆ—æ˜¾ç¤ºçš„æ˜¯å¯¹è±¡å¤§å°ï¼Œå¯ä»¥çœ‹åˆ° <code>05408</code> å ç”¨äº† 12K ç©ºé—´ï¼Œè€Œ <code>9bc1d</code> ä»…ä¸º 7 å­—èŠ‚ã€‚éå¸¸æœ‰è¶£çš„æ˜¯ç¬¬äºŒä¸ªç‰ˆæœ¬æ‰æ˜¯å®Œæ•´ä¿å­˜æ–‡ä»¶å†…å®¹çš„å¯¹è±¡ï¼Œè€Œç¬¬ä¸€ä¸ªç‰ˆæœ¬æ˜¯ä»¥å·®å¼‚æ–¹å¼ä¿å­˜çš„ â”€â”€ è¿™æ˜¯å› ä¸ºå¤§éƒ¨åˆ†æƒ…å†µä¸‹éœ€è¦å¿«é€Ÿè®¿é—®æ–‡ä»¶çš„æœ€æ–°ç‰ˆæœ¬ã€‚</p>
+
+<p>æœ€å¦™çš„æ˜¯å¯ä»¥éšæ—¶è¿›è¡Œé‡æ–°æ‰“åŒ…ã€‚Git è‡ªåŠ¨å®šæœŸå¯¹ä»“åº“è¿›è¡Œé‡æ–°æ‰“åŒ…ä»¥èŠ‚çœç©ºé—´ã€‚å½“ç„¶ä¹Ÿå¯ä»¥æ‰‹å·¥è¿è¡Œ <code>git gc</code> å‘½ä»¤æ¥è¿™ä¹ˆåšã€‚</p>
+
+<div id='nav'>
+<a href="ch9-3.html" tppabs="http://progit.org/book/zh/ch9-3.html">prev</a> | <a href="ch9-5.html" tppabs="http://progit.org/book/zh/ch9-5.html">next</a>
+</div>
+        <div class='clearfix'></div>
+      </div>
+    </div>
+    <div id='footer'>
+      Book translated into 
+        <a href="javascript:if(confirm('http://progit.org/book/de  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/de'" tppabs="http://progit.org/book/de">German</a>, 
+        <a href="javascript:if(confirm('http://progit.org/book/zh  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/zh'" tppabs="http://progit.org/book/zh">Chinese</a>, 
+        <a href="javascript:if(confirm('http://progit.org/book/ja  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/ja'" tppabs="http://progit.org/book/ja">Japanese</a> and 
+        <a href="javascript:if(confirm('http://progit.org/book/nl  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/nl'" tppabs="http://progit.org/book/nl">Dutch</a>.<br/>
+      Partial translations available in 
+        <a href="javascript:if(confirm('http://progit.org/book/ar  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/ar'" tppabs="http://progit.org/book/ar">Arabic</a>,
+        <a href="javascript:if(confirm('http://progit.org/book/cs  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/cs'" tppabs="http://progit.org/book/cs">Czech</a>,
+        <a href="javascript:if(confirm('http://progit.org/book/es  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/es'" tppabs="http://progit.org/book/es">Spanish</a>,
+        <a href="javascript:if(confirm('http://progit.org/book/fr  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/fr'" tppabs="http://progit.org/book/fr">French</a>,
+        <a href="javascript:if(confirm('http://progit.org/book/id  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/id'" tppabs="http://progit.org/book/id">Indonesian</a>,
+        <a href="javascript:if(confirm('http://progit.org/book/it  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/it'" tppabs="http://progit.org/book/it">Italian</a>,
+        <a href="javascript:if(confirm('http://progit.org/book/mk  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/mk'" tppabs="http://progit.org/book/mk">Macedonian</a>,
+        <a href="javascript:if(confirm('http://progit.org/book/pl  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/pl'" tppabs="http://progit.org/book/pl">Polish</a>,
+        <a href="javascript:if(confirm('http://progit.org/book/th  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/th'" tppabs="http://progit.org/book/th">Thai</a> and
+        <a href="javascript:if(confirm('http://progit.org/book/ru  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://progit.org/book/ru'" tppabs="http://progit.org/book/ru">Russian</a>
+        .<br/>
+      All content under <a href="javascript:if(confirm('http://creativecommons.org/licenses/by-nc-sa/3.0/us/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://creativecommons.org/licenses/by-nc-sa/3.0/us/'" tppabs="http://creativecommons.org/licenses/by-nc-sa/3.0/us/">Creative Commons Attribution-Non Commercial-Share Alike 3.0 license</a>.
+      <br/>Theme and code by <a href="javascript:if(confirm('http://github.com/mbleigh  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://github.com/mbleigh'" tppabs="http://github.com/mbleigh">Michael Bleigh</a>. Hosted by <a href="javascript:if(confirm('http://github.com/progit/progit.github.com/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://github.com/progit/progit.github.com/'" tppabs="http://github.com/progit/progit.github.com/" target='_blank'>GitHub</a> and powered by <a href="javascript:if(confirm('http://github.com/mojombo/jekyll  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://github.com/mojombo/jekyll'" tppabs="http://github.com/mojombo/jekyll">Jekyll</a>.
+    </div>
+    <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www./");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    try {
+    var pageTracker = _gat._getTracker("UA-82337-15");
+    pageTracker._trackPageview();
+    } catch(err) {}</script>
+  </body>
+</html>
